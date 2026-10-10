@@ -1,0 +1,25 @@
+α=0.3 TRAINING RESULTS (CodeT5+ 220M)
+====================================
+Dataset: CODET5_DATASET_α0.3.jsonl
+Training examples: 50,745
+Validation examples: 5,639
+Total steps: 3,965
+Epochs: 5
+
+ACCURACY PROGRESSION:
+Epoch 1.0 (Step 793):   77.09% (Loss: 0.034940)
+Epoch 2.0 (Step 1586):  80.17% (Loss: 0.025309)  +3.08%
+Epoch 3.0 (Step 2379):  82.05% (Loss: 0.020389)  +1.88%
+Epoch 4.0 (Step 3172):  82.25% (Loss: 0.018985)  +0.20%
+Epoch 5.0 (Step 3965):  83.05% (Loss: 0.018646)  +0.80%
+
+FINAL RESULTS:
+- Evaluation accuracy: 83.05%
+- Evaluation loss: 0.018646
+- Training time: ~1 hour 56 minutes
+- Checkpoints saved: Step 2379, 3172, 3965
+
+MODEL LOCATION:
+/home/903614/thesis_type_correction/models/codet5_220m_trained/
+
+TRAINING COMPLETED: 2026-01-30 01:14:09
