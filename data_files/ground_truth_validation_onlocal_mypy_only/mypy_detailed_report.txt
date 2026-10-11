@@ -1,0 +1,240 @@
+DETAILED MYPY CLEANING REPORT
+Generated: 2026-10-11 16:09:11.390025
+
+GLOBAL TOTALS
+  Baseline errors : 11265
+  Final errors    : 9880
+  Annotations removed : 837
+  Errors eliminated   : 1385
+
+ERRORS BY CODE (before -> after)
+  [attr-defined] An attribute does not exist on the type (not annotation-caused)
+      before: 2949   after: 2886   fixed: 63
+      remaining in 351 files across 30 repos
+
+  [call-arg] Wrong number of arguments in a call (not annotation-caused)
+      before: 1539   after: 1562   fixed: -23
+      remaining in 510 files across 15 repos
+
+  [assignment] Value assigned does not match its annotation (annotation-caused)
+      before: 1538   after: 715   fixed: 823
+      remaining in 261 files across 23 repos
+
+  [arg-type] Wrong argument type in a call (annotation-caused)
+      before: 1340   after: 1266   fixed: 74
+      remaining in 360 files across 30 repos
+
+  [name-defined] A name is used but never imported or defined (not annotation-caused)
+      before: 898   after: 897   fixed: 1
+      remaining in 32 files across 9 repos
+
+  [import-untyped] Imported module has no type information (not annotation-caused)
+      before: 539   after: 226   fixed: 313
+      remaining in 195 files across 28 repos
+
+  [union-attr] Attribute access on a union type (not annotation-caused)
+      before: 477   after: 490   fixed: -13
+      remaining in 165 files across 23 repos
+
+  [return-value] Returned value does not match the return annotation (annotation-caused)
+      before: 307   after: 301   fixed: 6
+      remaining in 159 files across 19 repos
+
+  [index] Invalid index type (not annotation-caused)
+      before: 223   after: 219   fixed: 4
+      remaining in 52 files across 12 repos
+
+  [var-annotated] Mypy wants an annotation for a variable (annotation-caused)
+      before: 196   after: 200   fixed: -4
+      remaining in 132 files across 16 repos
+
+  [operator] Unsupported operand types for this operator (not annotation-caused)
+      before: 194   after: 207   fixed: -13
+      remaining in 74 files across 16 repos
+
+  [no-redef] Name is redefined in the same scope (not annotation-caused)
+      before: 187   after: 179   fixed: 8
+      remaining in 66 files across 8 repos
+
+  [misc] Miscellaneous type error (not annotation-caused)
+      before: 185   after: 179   fixed: 6
+      remaining in 101 files across 17 repos
+
+  [dict-item] Dict value type mismatch (not annotation-caused)
+      before: 167   after: 168   fixed: -1
+      remaining in 14 files across 9 repos
+
+  [override] Method override signature incompatible with base class (not annotation-caused)
+      before: 130   after: 113   fixed: 17
+      remaining in 71 files across 12 repos
+
+  [valid-type] The annotation itself is invalid (annotation-caused)
+      before: 111   after: 11   fixed: 100
+      remaining in 9 files across 4 repos
+
+  [call-overload] No overload matches the call (not annotation-caused)
+      before: 66   after: 63   fixed: 3
+      remaining in 27 files across 13 repos
+
+  [has-type] Cannot determine the type of an expression (not annotation-caused)
+      before: 49   after: 79   fixed: -30
+      remaining in 21 files across 10 repos
+
+  [return] Function with a return annotation has no return statement (annotation-caused)
+      before: 34   after: 0   fixed: 34
+
+  [list-item] List element type mismatch (not annotation-caused)
+      before: 25   after: 24   fixed: 1
+      remaining in 16 files across 6 repos
+
+  [truthy-function] Function is always truthy (not annotation-caused)
+      before: 20   after: 8   fixed: 12
+      remaining in 7 files across 3 repos
+
+  [empty-body] Function body is empty but returns a non-None value (not annotation-caused)
+      before: 18   after: 18   fixed: 0
+      remaining in 12 files across 3 repos
+
+  [type-var] Type variable is used incorrectly (not annotation-caused)
+      before: 17   after: 19   fixed: -2
+      remaining in 16 files across 4 repos
+
+  [type-arg] Generic type has the wrong number/kind of parameters (annotation-caused)
+      before: 11   after: 1   fixed: 10
+      remaining in 1 files across 1 repos
+
+  [typeddict-item] TypedDict entry type mismatch (not annotation-caused)
+      before: 9   after: 9   fixed: 0
+      remaining in 6 files across 4 repos
+
+  [method-assign] Assigning to a method that is not assignable (not annotation-caused)
+      before: 9   after: 9   fixed: 0
+      remaining in 9 files across 6 repos
+
+  [syntax] Syntax error in the file (not annotation-caused)
+      before: 6   after: 6   fixed: 0
+      remaining in 5 files across 3 repos
+
+  [str-bytes-safe] Bytes used where str expected, or vice versa (not annotation-caused)
+      before: 5   after: 5   fixed: 0
+      remaining in 2 files across 1 repos
+
+  [func-returns-value] Function that returns a value used where none expected (annotation-caused)
+      before: 5   after: 4   fixed: 1
+      remaining in 3 files across 1 repos
+
+  [literal-required] Literal value not allowed here (not annotation-caused)
+      before: 3   after: 3   fixed: 0
+      remaining in 3 files across 1 repos
+
+  [str-format] String format call has wrong types (not annotation-caused)
+      before: 3   after: 3   fixed: 0
+      remaining in 2 files across 1 repos
+
+  [typeddict-unknown-key] No description (not annotation-caused)
+      before: 3   after: 3   fixed: 0
+      remaining in 1 files across 1 repos
+
+  [type-abstract] Cannot instantiate abstract class (not annotation-caused)
+      before: 2   after: 2   fixed: 0
+      remaining in 1 files across 1 repos
+
+  [used-before-def] Name used before it is defined (not annotation-caused)
+      before: 0   after: 5   fixed: -5
+      remaining in 1 files across 1 repos
+
+PER-REPO SUMMARY
+  Split: training
+    pre-commit-hooks: 0 -> 0 (removed 0 annotations)
+    flake8: 1 -> 1 (removed 0 annotations)
+    vnpy: 217 -> 122 (removed 101 annotations)
+    GHunt: 678 -> 252 (removed 86 annotations)
+    spotify-downloader: 12 -> 12 (removed 0 annotations)
+    deepface: 37 -> 37 (removed 0 annotations)
+    urllib3: 12 -> 12 (removed 0 annotations)
+    fastapi: 10 -> 10 (removed 0 annotations)
+    poetry: 34 -> 33 (removed 1 annotations)
+    haystack: 17 -> 16 (removed 1 annotations)
+    rich: 0 -> 0 (removed 0 annotations)
+    black: 21 -> 20 (removed 3 annotations)
+    faceswap: 22 -> 22 (removed 0 annotations)
+    streamlit: 1120 -> 1120 (removed 0 annotations)
+    phidata: 1692 -> 1686 (removed 4 annotations)
+    Pillow: 88 -> 88 (removed 0 annotations)
+    sphinx: 473 -> 202 (removed 1 annotations)
+    pip: 214 -> 208 (removed 8 annotations)
+    gradio: 13 -> 13 (removed 0 annotations)
+    pydantic: 387 -> 345 (removed 49 annotations)
+
+  Split: validation
+    typer: 2 -> 2 (removed 0 annotations)
+    pre-commit: 9 -> 9 (removed 0 annotations)
+    flask: 3 -> 3 (removed 0 annotations)
+    pdm: 70 -> 70 (removed 1 annotations)
+    manim: 472 -> 448 (removed 22 annotations)
+    nicegui: 17 -> 17 (removed 0 annotations)
+    openai-python: 19 -> 19 (removed 0 annotations)
+    taipy: 39 -> 11 (removed 26 annotations)
+    OpenBB: 216 -> 175 (removed 34 annotations)
+    capa: 5 -> 5 (removed 0 annotations)
+
+  Split: test
+    private-gpt: 59 -> 58 (removed 11 annotations)
+    gptme: 25 -> 25 (removed 0 annotations)
+    paper-qa: 25 -> 26 (removed 1 annotations)
+    pandas-ai: 0 -> 0 (removed 0 annotations)
+    supervision: 155 -> 154 (removed 1 annotations)
+    gpt4free: 0 -> 0 (removed 0 annotations)
+    AutoGPT: 1 -> 1 (removed 0 annotations)
+    mlc-llm: 0 -> 0 (removed 0 annotations)
+    DB-GPT: 2380 -> 2035 (removed 357 annotations)
+    vllm: 0 -> 0 (removed 0 annotations)
+    screenshot-to-code: 0 -> 0 (removed 0 annotations)
+    composio: 0 -> 0 (removed 0 annotations)
+    agents: 60 -> 59 (removed 1 annotations)
+    unstract: 0 -> 0 (removed 0 annotations)
+    TEN-Agent: 0 -> 0 (removed 0 annotations)
+    gpt-pilot: 0 -> 0 (removed 0 annotations)
+    lerobot: 364 -> 348 (removed 17 annotations)
+    LLaMA-Factory: 776 -> 758 (removed 28 annotations)
+    appworld: 1380 -> 1328 (removed 50 annotations)
+    exo: 140 -> 130 (removed 34 annotations)
+
+PLAIN-ENGLISH EXPLANATION OF EACH ERROR CODE
+  [arg-type] Wrong argument type in a call
+  [assignment] Value assigned does not match its annotation
+  [attr-defined] An attribute does not exist on the type
+  [call-arg] Wrong number of arguments in a call
+  [call-overload] No overload matches the call
+  [dict-item] Dict value type mismatch
+  [empty-body] Function body is empty but returns a non-None value
+  [func-returns-value] Function that returns a value used where none expected
+  [has-type] Cannot determine the type of an expression
+  [import-not-found] Imported module cannot be found
+  [import-untyped] Imported module has no type information
+  [index] Invalid index type
+  [list-item] List element type mismatch
+  [literal-required] Literal value not allowed here
+  [method-assign] Assigning to a method that is not assignable
+  [misc] Miscellaneous type error
+  [name-defined] A name is used but never imported or defined
+  [no-redef] Name is redefined in the same scope
+  [operator] Unsupported operand types for this operator
+  [overload-cannot-match] Overload signature cannot ever match
+  [override] Method override signature incompatible with base class
+  [return] Function with a return annotation has no return statement
+  [return-value] Returned value does not match the return annotation
+  [str-bytes-safe] Bytes used where str expected, or vice versa
+  [str-format] String format call has wrong types
+  [str-unpack] Unpacking a string incorrectly
+  [syntax] Syntax error in the file
+  [truthy-function] Function is always truthy
+  [type-abstract] Cannot instantiate abstract class
+  [type-arg] Generic type has the wrong number/kind of parameters
+  [type-var] Type variable is used incorrectly
+  [typeddict-item] TypedDict entry type mismatch
+  [union-attr] Attribute access on a union type
+  [unknown] Unknown error code
+  [used-before-def] Name used before it is defined
+  [valid-type] The annotation itself is invalid
+  [var-annotated] Mypy wants an annotation for a variable

@@ -1,3 +1,4 @@
+
 import os
 import ast
 import json
@@ -9,8 +10,7 @@ from collections import defaultdict
 from datetime import datetime
 
 
-
-BASE_PATH = os.path.expanduser("~/thesis_type_correction/repos")
+BASE_PATH = r"C:\Users\hp\Downloads\typybenchdata\typybenchdata"
 
 TRAINING_REPOS = [
     "pre-commit-hooks", "flake8", "vnpy", "GHunt", "spotify-downloader",
@@ -37,7 +37,7 @@ ALL_REPOS = {
     "test": TEST_REPOS,
 }
 
-MYPY_TIMEOUT_WHOLE_REPO = 900  # seconds
+MYPY_TIMEOUT_WHOLE_REPO = 900
 
 MYPY_LINE_RE = re.compile(
     r'^(?P<file>.+?):(?P<line>\d+):(?:(?P<col>\d+):)?\s*'
@@ -56,7 +56,46 @@ ANNOTATION_ERROR_CODES = {
     "return",
 }
 
-# MYPY HELPERS
+CODE_DESCRIPTIONS = {
+    "arg-type":             "Wrong argument type in a call",
+    "assignment":           "Value assigned does not match its annotation",
+    "return-value":         "Returned value does not match the return annotation",
+    "valid-type":           "The annotation itself is invalid",
+    "type-arg":             "Generic type has the wrong number/kind of parameters",
+    "var-annotated":        "Mypy wants an annotation for a variable",
+    "func-returns-value":   "Function that returns a value used where none expected",
+    "return":               "Function with a return annotation has no return statement",
+    "name-defined":         "A name is used but never imported or defined",
+    "attr-defined":         "An attribute does not exist on the type",
+    "call-arg":             "Wrong number of arguments in a call",
+    "union-attr":           "Attribute access on a union type",
+    "operator":             "Unsupported operand types for this operator",
+    "index":                "Invalid index type",
+    "no-redef":             "Name is redefined in the same scope",
+    "misc":                 "Miscellaneous type error",
+    "override":             "Method override signature incompatible with base class",
+    "import-untyped":       "Imported module has no type information",
+    "import-not-found":     "Imported module cannot be found",
+    "has-type":             "Cannot determine the type of an expression",
+    "type-var":             "Type variable is used incorrectly",
+    "call-overload":        "No overload matches the call",
+    "list-item":            "List element type mismatch",
+    "dict-item":            "Dict value type mismatch",
+    "typeddict-item":       "TypedDict entry type mismatch",
+    "literal-required":     "Literal value not allowed here",
+    "method-assign":        "Assigning to a method that is not assignable",
+    "truthy-function":      "Function is always truthy",
+    "str-format":           "String format call has wrong types",
+    "str-bytes-safe":       "Bytes used where str expected, or vice versa",
+    "str-unpack":           "Unpacking a string incorrectly",
+    "syntax":               "Syntax error in the file",
+    "empty-body":           "Function body is empty but returns a non-None value",
+    "used-before-def":      "Name used before it is defined",
+    "type-abstract":        "Cannot instantiate abstract class",
+    "overload-cannot-match":"Overload signature cannot ever match",
+    "index":                "Invalid index type",
+    "unknown":              "Unknown error code",
+}
 
 
 def run_mypy(target: str) -> List[Dict]:
@@ -99,8 +138,6 @@ def error_code_counts(records: List[Dict]) -> Dict[str, int]:
     return dict(sorted(counts.items(), key=lambda kv: -kv[1]))
 
 
-# ANNOTATION COLLECTOR
-
 class AnnotationCollector(ast.NodeVisitor):
     """
     Collect every annotation node with its position.
@@ -134,8 +171,6 @@ class AnnotationCollector(ast.NodeVisitor):
             self.entries.append(("var", node, node.annotation))
         self.generic_visit(node)
 
-
-# SOURCE-POSITION BASED REMOVAL
 
 def _prefix_lens(lines: List[bytes]) -> List[int]:
     out = [0]
@@ -243,8 +278,6 @@ def clean_file(src_path: str, dst_path: str, invalid_lines: Set[int]) -> int:
     return len(merge_ranges(removals))
 
 
-# REPOSITORY PIPELINE
-
 def process_repository(repo_name: str, repo_path: str, output_root: str) -> Dict:
     original_path = os.path.join(repo_path, "original_repo")
     clean_path = os.path.join(output_root, repo_name, "original_repo_clean")
@@ -301,7 +334,27 @@ def process_repository(repo_name: str, repo_path: str, output_root: str) -> Dict
     for code, n in final_by_code.items():
         print(f"      {code}: {n}")
 
+    final_errors = []
+    for r in final_records:
+        try:
+            rel = os.path.relpath(r["file"], clean_path)
+        except ValueError:
+            rel = r["file"]
+        final_errors.append({
+            "file": rel,
+            "line": r["line"],
+            "col": r["col"],
+            "code": r["code"],
+            "message": r["msg"],
+            "annotation_caused": r["code"] in ANNOTATION_ERROR_CODES,
+        })
+
+    remaining_by_code: Dict[str, List[Dict]] = defaultdict(list)
+    for e in final_errors:
+        remaining_by_code[e["code"]].append(e)
+
     return {
+        "repo": repo_name,
         "baseline_total": baseline_total,
         "baseline_by_code": baseline_by_code,
         "final_total": final_total,
@@ -309,16 +362,90 @@ def process_repository(repo_name: str, repo_path: str, output_root: str) -> Dict
         "removed_annotations": removed_total,
         "files_touched": files_touched,
         "annotation_error_lines": total_annotation_errors,
+        "final_errors": final_errors,
+        "remaining_by_code": {k: v for k, v in remaining_by_code.items()},
     }
 
 
-# ENTRY POINT
-#
+def write_detailed_text_report(all_stats: Dict, path: str):
+    lines = []
+    lines.append("DETAILED MYPY CLEANING REPORT")
+    lines.append(f"Generated: {datetime.now()}")
+    lines.append("")
+
+    total_baseline = 0
+    total_final = 0
+    total_removed = 0
+    global_baseline_by_code = defaultdict(int)
+    global_final_by_code = defaultdict(int)
+    global_files_by_code = defaultdict(set)
+
+    for split_name, repos in all_stats.items():
+        for repo_name, stats in repos.items():
+            if stats.get("skipped"):
+                continue
+            total_baseline += stats["baseline_total"]
+            total_final += stats["final_total"]
+            total_removed += stats["removed_annotations"]
+            for code, n in stats["baseline_by_code"].items():
+                global_baseline_by_code[code] += n
+            for code, n in stats["final_by_code"].items():
+                global_final_by_code[code] += n
+            for code, items in stats["remaining_by_code"].items():
+                for item in items:
+                    global_files_by_code[code].add((repo_name, item["file"]))
+
+    lines.append("GLOBAL TOTALS")
+    lines.append(f"  Baseline errors : {total_baseline}")
+    lines.append(f"  Final errors    : {total_final}")
+    lines.append(f"  Annotations removed : {total_removed}")
+    lines.append(f"  Errors eliminated   : {total_baseline - total_final}")
+    lines.append("")
+
+    lines.append("ERRORS BY CODE (before -> after)")
+    all_codes = sorted(
+        set(global_baseline_by_code) | set(global_final_by_code),
+        key=lambda c: -(global_baseline_by_code.get(c, 0)),
+    )
+    for code in all_codes:
+        before = global_baseline_by_code.get(code, 0)
+        after = global_final_by_code.get(code, 0)
+        delta = before - after
+        desc = CODE_DESCRIPTIONS.get(code, "No description")
+        tag = "annotation-caused" if code in ANNOTATION_ERROR_CODES else "not annotation-caused"
+        lines.append(f"  [{code}] {desc} ({tag})")
+        lines.append(f"      before: {before}   after: {after}   fixed: {delta}")
+        if code in global_files_by_code:
+            files = sorted(global_files_by_code[code])
+            n_repos = len(set(r for r, _ in files))
+            n_files = len(files)
+            lines.append(f"      remaining in {n_files} files across {n_repos} repos")
+        lines.append("")
+
+    lines.append("PER-REPO SUMMARY")
+    for split_name, repos in all_stats.items():
+        lines.append(f"  Split: {split_name}")
+        for repo_name, stats in repos.items():
+            if stats.get("skipped"):
+                lines.append(f"    {repo_name}: skipped")
+                continue
+            lines.append(
+                f"    {repo_name}: {stats['baseline_total']} -> {stats['final_total']} "
+                f"(removed {stats['removed_annotations']} annotations)"
+            )
+        lines.append("")
+
+    lines.append("PLAIN-ENGLISH EXPLANATION OF EACH ERROR CODE")
+    for code in sorted(CODE_DESCRIPTIONS):
+        lines.append(f"  [{code}] {CODE_DESCRIPTIONS[code]}")
+    lines.append("")
+
+    with open(path, "w", encoding="utf-8") as f:
+        f.write("\n".join(lines))
+
 
 def validate_and_clean_all_repositories():
-    print("=" * 80)
     print("VALIDATE AND CLEAN REPOSITORIES WITH MYPY (--ignore-missing-imports)")
-    print("=" * 80)
     print(f"Start: {datetime.now()}")
 
     output_root = os.path.join(BASE_PATH, "cleaned_repos")
@@ -327,7 +454,7 @@ def validate_and_clean_all_repositories():
     all_stats: Dict[str, Dict[str, Dict]] = {}
 
     for split_name, repos in ALL_REPOS.items():
-        print(f"\n{'#'*60}\n{split_name.upper()}\n{'#'*60}")
+        print(f"\n{split_name.upper()}")
         split_stats: Dict[str, Dict] = {}
         for i, repo_name in enumerate(repos, 1):
             print(f"[{i}/{len(repos)}] {repo_name}")
@@ -340,17 +467,38 @@ def validate_and_clean_all_repositories():
 
     report_dir = os.path.join(BASE_PATH, "ground_truth_validation_mypy_only")
     os.makedirs(report_dir, exist_ok=True)
-    report_path = os.path.join(report_dir, "mypy_cleaning_report.json")
-    with open(report_path, "w") as f:
+
+    counts_path = os.path.join(report_dir, "mypy_cleaning_report.json")
+    with open(counts_path, "w") as f:
         json.dump({
             "timestamp": str(datetime.now()),
+            "by_split": {
+                split: {
+                    repo: {k: v for k, v in stats.items()
+                           if k not in ("final_errors", "remaining_by_code")}
+                    for repo, stats in repos.items()
+                }
+                for split, repos in all_stats.items()
+            },
+        }, f, indent=2, default=str)
+
+    detailed_json_path = os.path.join(report_dir, "mypy_detailed_report.json")
+    with open(detailed_json_path, "w") as f:
+        json.dump({
+            "timestamp": str(datetime.now()),
+            "annotation_error_codes": sorted(ANNOTATION_ERROR_CODES),
+            "code_descriptions": CODE_DESCRIPTIONS,
             "by_split": all_stats,
         }, f, indent=2, default=str)
 
-    print(f"\nReport written to {report_path}")
+    detailed_txt_path = os.path.join(report_dir, "mypy_detailed_report.txt")
+    write_detailed_text_report(all_stats, detailed_txt_path)
+
+    print(f"\nCounts report written to     {counts_path}")
+    print(f"Detailed JSON written to     {detailed_json_path}")
+    print(f"Detailed text written to     {detailed_txt_path}")
     print(f"End: {datetime.now()}")
 
 
 if __name__ == "__main__":
     validate_and_clean_all_repositories()
-
