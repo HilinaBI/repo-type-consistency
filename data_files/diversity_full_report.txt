@@ -1,0 +1,200 @@
+======================================================================
+Training alpha=1.0
+file: CODET5_DATASET_CLEAN_NORMALIZED_α1.0_VARIANTS.jsonl
+total examples: 199481
+======================================================================
+
+  REPOSITORY DIVERSITY
+  distinct repositories : 20
+  top 3 share           : 44.3%
+  top 5 share           : 59.5%
+  top 5 repositories:
+    sphinx                       38416    19.3%
+    pip                          25355    12.7%
+    Pillow                       24567    12.3%
+    pydantic                     15210     7.6%
+    faceswap                     15128     7.6%
+
+  TARGET TYPE DIVERSITY
+  distinct target types : 5299
+  top 3 types share     : 37.3%
+  top 10 types share    : 52.3%
+  top 50 types share    : 66.4%
+  top 10 types:
+    None                                   30056    15.1%
+    str                                    26956    13.5%
+    bool                                   17308     8.7%
+    int                                    10448     5.2%
+    str | None                              4288     2.1%
+    playwright.sync_api.Page                3512     1.8%
+    typing.Any                              3344     1.7%
+    docutils.nodes.Element                  3336     1.7%
+    Optional[str]                           3208     1.6%
+    pathlib.Path                            1842     0.9%
+
+  ANNOTATION-KIND MIX
+    arg           99688    50.0%
+    return        78081    39.1%
+    kwarg         21012    10.5%
+    vararg          700     0.4%
+
+======================================================================
+Training alpha=1.0 (filtered)
+file: CODET5_DATASET_CLEAN_NORMALIZED_α1.0_VARIANTS_filtered.jsonl
+total examples: 179723
+======================================================================
+
+  REPOSITORY DIVERSITY
+  distinct repositories : 20
+  top 3 share           : 43.9%
+  top 5 share           : 58.0%
+  top 5 repositories:
+    sphinx                       31874    17.7%
+    Pillow                       24457    13.6%
+    pip                          22575    12.6%
+    gradio                       12862     7.2%
+    faceswap                     12459     6.9%
+
+  TARGET TYPE DIVERSITY
+  distinct target types : 4968
+  top 3 types share     : 38.3%
+  top 10 types share    : 53.5%
+  top 50 types share    : 66.7%
+  top 10 types:
+    None                                   30056    16.7%
+    str                                    23764    13.2%
+    bool                                   15016     8.4%
+    int                                     9112     5.1%
+    str | None                              3892     2.2%
+    playwright.sync_api.Page                3512     2.0%
+    docutils.nodes.Element                  3272     1.8%
+    typing.Any                              2894     1.6%
+    Optional[str]                           2828     1.6%
+    pathlib.Path                            1824     1.0%
+
+  ANNOTATION-KIND MIX
+    arg           82623    46.0%
+    return        78081    43.4%
+    kwarg         18441    10.3%
+    vararg          578     0.3%
+
+======================================================================
+Validation alpha=0.5
+file: CODET5_VALIDATION_NOTYPE_NORMALIZED_α0.5.jsonl
+total examples: 25326
+======================================================================
+
+  REPOSITORY DIVERSITY
+  distinct repositories : 10
+  top 3 share           : 55.8%
+  top 5 share           : 75.2%
+  top 5 repositories:
+    openbb                        6853    27.1%
+    openai-python                 4293    17.0%
+    taipy                         2993    11.8%
+    nicegui                       2509     9.9%
+    pdm                           2390     9.4%
+
+  TARGET TYPE DIVERSITY
+  distinct target types : 3455
+  top 3 types share     : 24.7%
+  top 10 types share    : 40.4%
+  top 50 types share    : 61.0%
+  top 10 types:
+    str                                     3059    12.1%
+    None                                    1714     6.8%
+    bool                                    1478     5.8%
+    typing.Any                              1342     5.3%
+    Optional[str]                            540     2.1%
+    int                                      525     2.1%
+    List[Dict]                               499     2.0%
+    float                                    392     1.5%
+    Dict[str, typing.Any]                    368     1.5%
+    Optional[typing.Dict[str, str]]          307     1.2%
+
+  ANNOTATION-KIND MIX
+    arg           12236    48.3%
+    return         8219    32.5%
+    kwarg          4724    18.7%
+    vararg          147     0.6%
+
+======================================================================
+Test inference
+file: TEST_SET_INFERENCE_CODET5_NORMALIZED_clean.jsonl
+total examples: 25083
+======================================================================
+
+  REPOSITORY DIVERSITY
+  distinct repositories : 20
+  top 3 share           : 45.0%
+  top 5 share           : 62.2%
+  top 5 repositories:
+    vllm                          4353    17.4%
+    db-gpt                        3824    15.2%
+    unstract                      3111    12.4%
+    autogpt                       2207     8.8%
+    mlc-llm                       2106     8.4%
+
+  TARGET TYPE DIVERSITY
+  distinct target types : 3546
+  top 3 types share     : 31.2%
+  top 10 types share    : 46.6%
+  top 50 types share    : 61.0%
+  top 10 types:
+    str                                     4952    19.7%
+    int                                     1460     5.8%
+    None                                    1421     5.7%
+    bool                                     987     3.9%
+    torch.Tensor                             714     2.8%
+    typing.Any                               672     2.7%
+    Optional[str]                            519     2.1%
+    tvm.relax.frontend.nn.Tensor             426     1.7%
+    Dict[str, typing.Any]                    288     1.1%
+    dict[str, typing.Any]                    256     1.0%
+
+  ANNOTATION-KIND MIX
+    arg           17199    68.6%
+    return         7098    28.3%
+    kwarg           667     2.7%
+    vararg          119     0.5%
+
+======================================================================
+Test correction
+file: TEST_SET_CORRUPTED_CODET5_NORMALIZED_clean.jsonl
+total examples: 28295
+======================================================================
+
+  REPOSITORY DIVERSITY
+  distinct repositories : 20
+  top 3 share           : 46.4%
+  top 5 share           : 62.9%
+  top 5 repositories:
+    vllm                          6029    21.3%
+    unstract                      4174    14.8%
+    db-gpt                        2913    10.3%
+    mlc-llm                       2465     8.7%
+    appworld                      2206     7.8%
+
+  TARGET TYPE DIVERSITY
+  distinct target types : 3761
+  top 3 types share     : 29.7%
+  top 10 types share    : 46.2%
+  top 50 types share    : 62.5%
+  top 10 types:
+    str                                     4740    16.8%
+    int                                     2015     7.1%
+    bool                                    1660     5.9%
+    None                                    1006     3.6%
+    torch.Tensor                             959     3.4%
+    typing.Any                               758     2.7%
+    Optional[str]                            732     2.6%
+    tvm.relax.frontend.nn.Tensor             441     1.6%
+    float                                    401     1.4%
+    dict[str, typing.Any]                    357     1.3%
+
+  ANNOTATION-KIND MIX
+    arg           18638    65.9%
+    return         8248    29.2%
+    kwarg          1298     4.6%
+    vararg          111     0.4%
+

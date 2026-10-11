@@ -27,13 +27,11 @@ if torch.cuda.is_available():
     gpu_memory = torch.cuda.get_device_properties(0).total_memory / 1e9
     print(f"GPU Memory: {gpu_memory:.2f} GB")
 
-# ===== CONFIGURATION =====
+# CONFIGURATION 
 MODEL_NAME = "Salesforce/codet5p-220m"
-DATA_PATH = "data/CODET5_DATASET_CLEAN_NORMALIZED_α0.1_VARIANTS.jsonl"
-OUTPUT_DIR = "models/codet5_220m_trained_new_clean_repo_normalized_α0.1_with_variants"
-
-# Validation file (direct path, no extraction needed)
-VAL_PATH = "data/CODET5_VALIDATION_NOTYPE_NORMALIZED_α0.5.jsonl"
+DATA_PATH = "data/CODET5_DATASET_CLEAN_NORMALIZED_α1.0_VARIANTS_filtered.jsonl"
+OUTPUT_DIR = "models/codet5_220m_trained_new_clean_repo_normalized_α1.0_with_variants_filtered"
+VAL_PATH = "data/CODET5_VALIDATION_NOTYPE_NORMALIZED_α0.5_filtered.jsonl "
 
 BATCH_SIZE = 48
 GRAD_ACCUM_STEPS = 2
@@ -51,7 +49,7 @@ print(f"  Effective batch: {BATCH_SIZE * GRAD_ACCUM_STEPS}")
 print(f"  Learning rate: {LEARNING_RATE}")
 print(f"  Epochs: {NUM_EPOCHS}")
 
-# ===== LOAD TRAINING DATA =====
+# LOAD TRAINING DATA 
 print(f"\n1. Loading training dataset...")
 train_examples = []
 with open(DATA_PATH, 'r', encoding='utf-8') as f:
@@ -61,7 +59,7 @@ with open(DATA_PATH, 'r', encoding='utf-8') as f:
 train_dataset = Dataset.from_list(train_examples)
 print(f"  Training examples: {len(train_dataset)}")
 
-# ===== LOAD VALIDATION DATA =====
+# LOAD VALIDATION DATA
 print(f"\n2. Loading validation dataset...")
 val_examples = []
 with open(VAL_PATH, 'r', encoding='utf-8') as f:
@@ -72,14 +70,14 @@ eval_dataset = Dataset.from_list(val_examples)
 print(f"  Validation examples: {len(eval_dataset)}")
 print(f"  Validation file: {VAL_PATH}")
 
-# ===== LOAD MODEL =====
+# LOAD MODEL
 print(f"\n3. Loading model: {MODEL_NAME}")
 from transformers import RobertaTokenizer, T5ForConditionalGeneration
 
 tokenizer = RobertaTokenizer.from_pretrained(MODEL_NAME)
 model = T5ForConditionalGeneration.from_pretrained(MODEL_NAME)
 
-# ===== TOKENIZATION =====
+# TOKENIZATION 
 print(f"\n4. Tokenizing datasets...")
 def preprocess_function(examples):
     inputs = tokenizer(
@@ -191,23 +189,23 @@ trainer = Seq2SeqTrainer(
     callbacks=[ETACallback()]
 )
 
-# ===== TRAIN =====
+#  TRAIN 
 print(f"\n7. Starting training...")
 print("=" * 80)
 train_result = trainer.train()
 
-# ===== SAVE =====
+# SAVE 
 print(f"\n8. Saving model to {OUTPUT_DIR}")
 trainer.save_model()
 tokenizer.save_pretrained(OUTPUT_DIR)
 
-# ===== EVALUATE =====
+#  EVALUATE 
 print(f"\n9. Final evaluation...")
 eval_results = trainer.evaluate()
 print(f"  Evaluation loss: {eval_results['eval_loss']:.4f}")
 print(f"  Evaluation accuracy: {eval_results.get('eval_accuracy', 0):.2%}")
 
-# ===== SAMPLE PREDICTIONS =====
+# SAMPLE PREDICTIONS 
 print(f"\n10. Sample predictions:")
 print("-" * 40)
 for i in range(min(3, 10)):

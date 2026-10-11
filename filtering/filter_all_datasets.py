@@ -1,12 +1,3 @@
-"""
-Filter the datasets used by the alpha=1.0 experiment.
-
-Removes examples whose source function contains at least one remaining
-mypy error, as reported in mypy_detailed_report.json.
-
-Writes new files with '_filtered' in the name, in the same folder as the
-originals. The original files are never modified.
-"""
 
 import ast
 import json

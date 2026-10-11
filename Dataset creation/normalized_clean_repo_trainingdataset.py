@@ -6,7 +6,7 @@ import sys
 import re
 from typing import Dict
 
-# Import the normalizer
+# the normalizer
 from alias_normalizer import build_alias_table, normalize_code, normalize_type
 
 # Add Brain 1 path

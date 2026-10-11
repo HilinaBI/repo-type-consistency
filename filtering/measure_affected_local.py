@@ -1,8 +1,3 @@
-"""
-Measure how many dataset examples are affected by the remaining mypy errors.
-Local version, for Windows paths.
-"""
-
 import ast
 import json
 import os

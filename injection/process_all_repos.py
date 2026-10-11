@@ -162,7 +162,7 @@ def main():
             if repo_data:
                 all_mutations_summary[repo_name] = repo_data
                 
-    # FINAL STEP: Write the collected mutation data to JSON
+    # Write the collected mutation data to JSON
     print(f"\nWriting mutation summary to {summary_output_file}...")
     try:
         with open(summary_output_file, 'w', encoding='utf-8') as f:
