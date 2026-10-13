@@ -12,3 +12,4 @@ venv/
 *.tar.gz
 .DS_Store
 Thumbs.db
+datasets/

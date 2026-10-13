@@ -1,0 +1,1264 @@
+{
+  "timestamp": "2026-10-14 00:26:25.420516",
+  "by_split": {
+    "training": {
+      "pre-commit-hooks": {
+        "repo": "pre-commit-hooks",
+        "baseline_total": 0,
+        "baseline_by_code": {},
+        "final_total": 0,
+        "final_by_code": {},
+        "removed_annotations": 0,
+        "files_touched": 0,
+        "annotation_error_lines": 0
+      },
+      "flake8": {
+        "repo": "flake8",
+        "baseline_total": 1,
+        "baseline_by_code": {
+          "operator": 1
+        },
+        "final_total": 1,
+        "final_by_code": {
+          "operator": 1
+        },
+        "removed_annotations": 0,
+        "files_touched": 0,
+        "annotation_error_lines": 0
+      },
+      "vnpy": {
+        "repo": "vnpy",
+        "baseline_total": 217,
+        "baseline_by_code": {
+          "assignment": 99,
+          "no-redef": 53,
+          "attr-defined": 25,
+          "arg-type": 9,
+          "valid-type": 9,
+          "return-value": 7,
+          "misc": 5,
+          "empty-body": 2,
+          "return": 2,
+          "call-overload": 2,
+          "index": 2,
+          "method-assign": 1,
+          "truthy-function": 1
+        },
+        "final_total": 122,
+        "final_by_code": {
+          "no-redef": 45,
+          "assignment": 25,
+          "attr-defined": 25,
+          "return-value": 9,
+          "arg-type": 7,
+          "call-arg": 2,
+          "empty-body": 2,
+          "call-overload": 2,
+          "valid-type": 1,
+          "misc": 1,
+          "method-assign": 1,
+          "truthy-function": 1,
+          "union-attr": 1
+        },
+        "removed_annotations": 101,
+        "files_touched": 15,
+        "annotation_error_lines": 119
+      },
+      "GHunt": {
+        "repo": "GHunt",
+        "baseline_total": 678,
+        "baseline_by_code": {
+          "assignment": 431,
+          "attr-defined": 88,
+          "valid-type": 64,
+          "arg-type": 37,
+          "union-attr": 17,
+          "return-value": 15,
+          "var-annotated": 12,
+          "return": 3,
+          "import-untyped": 2,
+          "index": 2,
+          "has-type": 2,
+          "dict-item": 2,
+          "call-overload": 2,
+          "misc": 1
+        },
+        "final_total": 252,
+        "final_by_code": {
+          "assignment": 134,
+          "attr-defined": 40,
+          "arg-type": 27,
+          "union-attr": 17,
+          "return-value": 13,
+          "var-annotated": 12,
+          "import-untyped": 2,
+          "index": 2,
+          "has-type": 2,
+          "dict-item": 2,
+          "misc": 1
+        },
+        "removed_annotations": 86,
+        "files_touched": 15,
+        "annotation_error_lines": 557
+      },
+      "spotify-downloader": {
+        "repo": "spotify-downloader",
+        "baseline_total": 12,
+        "baseline_by_code": {
+          "import-untyped": 12
+        },
+        "final_total": 12,
+        "final_by_code": {
+          "import-untyped": 12
+        },
+        "removed_annotations": 0,
+        "files_touched": 0,
+        "annotation_error_lines": 0
+      },
+      "deepface": {
+        "repo": "deepface",
+        "baseline_total": 37,
+        "baseline_by_code": {
+          "assignment": 11,
+          "var-annotated": 5,
+          "arg-type": 5,
+          "index": 5,
+          "name-defined": 4,
+          "attr-defined": 2,
+          "union-attr": 2,
+          "import-untyped": 1,
+          "call-overload": 1,
+          "operator": 1
+        },
+        "final_total": 37,
+        "final_by_code": {
+          "assignment": 11,
+          "var-annotated": 5,
+          "arg-type": 5,
+          "index": 5,
+          "name-defined": 4,
+          "attr-defined": 2,
+          "union-attr": 2,
+          "import-untyped": 1,
+          "call-overload": 1,
+          "operator": 1
+        },
+        "removed_annotations": 0,
+        "files_touched": 0,
+        "annotation_error_lines": 20
+      },
+      "urllib3": {
+        "repo": "urllib3",
+        "baseline_total": 12,
+        "baseline_by_code": {
+          "misc": 6,
+          "attr-defined": 4,
+          "override": 2
+        },
+        "final_total": 12,
+        "final_by_code": {
+          "misc": 6,
+          "attr-defined": 4,
+          "override": 2
+        },
+        "removed_annotations": 0,
+        "files_touched": 0,
+        "annotation_error_lines": 0
+      },
+      "fastapi": {
+        "repo": "fastapi",
+        "baseline_total": 10,
+        "baseline_by_code": {
+          "arg-type": 6,
+          "import-untyped": 2,
+          "assignment": 1,
+          "attr-defined": 1
+        },
+        "final_total": 10,
+        "final_by_code": {
+          "arg-type": 6,
+          "import-untyped": 2,
+          "assignment": 1,
+          "attr-defined": 1
+        },
+        "removed_annotations": 0,
+        "files_touched": 0,
+        "annotation_error_lines": 7
+      },
+      "poetry": {
+        "repo": "poetry",
+        "baseline_total": 34,
+        "baseline_by_code": {
+          "import-untyped": 17,
+          "attr-defined": 16,
+          "return": 1
+        },
+        "final_total": 33,
+        "final_by_code": {
+          "import-untyped": 17,
+          "attr-defined": 16
+        },
+        "removed_annotations": 1,
+        "files_touched": 1,
+        "annotation_error_lines": 1
+      },
+      "haystack": {
+        "repo": "haystack",
+        "baseline_total": 17,
+        "baseline_by_code": {
+          "import-untyped": 11,
+          "assignment": 2,
+          "arg-type": 2,
+          "attr-defined": 2
+        },
+        "final_total": 16,
+        "final_by_code": {
+          "import-untyped": 11,
+          "arg-type": 2,
+          "attr-defined": 2,
+          "assignment": 1
+        },
+        "removed_annotations": 1,
+        "files_touched": 1,
+        "annotation_error_lines": 4
+      },
+      "rich": {
+        "repo": "rich",
+        "baseline_total": 0,
+        "baseline_by_code": {},
+        "final_total": 0,
+        "final_by_code": {},
+        "removed_annotations": 0,
+        "files_touched": 0,
+        "annotation_error_lines": 0
+      },
+      "black": {
+        "repo": "black",
+        "baseline_total": 21,
+        "baseline_by_code": {
+          "name-defined": 7,
+          "arg-type": 7,
+          "attr-defined": 4,
+          "valid-type": 2,
+          "import-untyped": 1
+        },
+        "final_total": 20,
+        "final_by_code": {
+          "name-defined": 7,
+          "arg-type": 7,
+          "attr-defined": 4,
+          "import-untyped": 1,
+          "var-annotated": 1
+        },
+        "removed_annotations": 3,
+        "files_touched": 1,
+        "annotation_error_lines": 4
+      },
+      "faceswap": {
+        "repo": "faceswap",
+        "baseline_total": 22,
+        "baseline_by_code": {
+          "operator": 5,
+          "arg-type": 5,
+          "misc": 4,
+          "assignment": 3,
+          "return-value": 2,
+          "union-attr": 1,
+          "import-untyped": 1,
+          "override": 1
+        },
+        "final_total": 22,
+        "final_by_code": {
+          "operator": 5,
+          "arg-type": 5,
+          "misc": 4,
+          "assignment": 3,
+          "return-value": 2,
+          "union-attr": 1,
+          "import-untyped": 1,
+          "override": 1
+        },
+        "removed_annotations": 0,
+        "files_touched": 0,
+        "annotation_error_lines": 10
+      },
+      "streamlit": {
+        "repo": "streamlit",
+        "baseline_total": 58,
+        "baseline_by_code": {
+          "call-arg": 32,
+          "import-untyped": 9,
+          "attr-defined": 9,
+          "union-attr": 2,
+          "assignment": 2,
+          "misc": 2,
+          "return-value": 1,
+          "no-redef": 1
+        },
+        "final_total": 58,
+        "final_by_code": {
+          "call-arg": 32,
+          "import-untyped": 9,
+          "attr-defined": 9,
+          "union-attr": 2,
+          "assignment": 2,
+          "misc": 2,
+          "return-value": 1,
+          "no-redef": 1
+        },
+        "removed_annotations": 0,
+        "files_touched": 0,
+        "annotation_error_lines": 3
+      },
+      "phidata": {
+        "repo": "phidata",
+        "baseline_total": 810,
+        "baseline_by_code": {
+          "call-arg": 758,
+          "arg-type": 35,
+          "assignment": 5,
+          "operator": 4,
+          "union-attr": 3,
+          "attr-defined": 3,
+          "import-untyped": 2
+        },
+        "final_total": 806,
+        "final_by_code": {
+          "call-arg": 758,
+          "arg-type": 35,
+          "operator": 4,
+          "union-attr": 3,
+          "attr-defined": 3,
+          "import-untyped": 2,
+          "assignment": 1
+        },
+        "removed_annotations": 4,
+        "files_touched": 2,
+        "annotation_error_lines": 40
+      },
+      "Pillow": {
+        "repo": "Pillow",
+        "baseline_total": 88,
+        "baseline_by_code": {
+          "no-redef": 32,
+          "operator": 18,
+          "attr-defined": 15,
+          "union-attr": 10,
+          "assignment": 3,
+          "misc": 2,
+          "arg-type": 2,
+          "var-annotated": 2,
+          "valid-type": 1,
+          "override": 1,
+          "has-type": 1,
+          "return-value": 1
+        },
+        "final_total": 88,
+        "final_by_code": {
+          "no-redef": 32,
+          "operator": 18,
+          "attr-defined": 15,
+          "union-attr": 10,
+          "assignment": 3,
+          "misc": 2,
+          "var-annotated": 2,
+          "arg-type": 2,
+          "valid-type": 1,
+          "override": 1,
+          "has-type": 1,
+          "return-value": 1
+        },
+        "removed_annotations": 0,
+        "files_touched": 0,
+        "annotation_error_lines": 9
+      },
+      "sphinx": {
+        "repo": "sphinx",
+        "baseline_total": 203,
+        "baseline_by_code": {
+          "arg-type": 108,
+          "union-attr": 57,
+          "return-value": 11,
+          "assignment": 10,
+          "import-untyped": 7,
+          "attr-defined": 5,
+          "operator": 3,
+          "misc": 2
+        },
+        "final_total": 202,
+        "final_by_code": {
+          "arg-type": 108,
+          "union-attr": 57,
+          "return-value": 11,
+          "assignment": 9,
+          "import-untyped": 7,
+          "attr-defined": 5,
+          "operator": 3,
+          "misc": 2
+        },
+        "removed_annotations": 1,
+        "files_touched": 1,
+        "annotation_error_lines": 103
+      },
+      "pip": {
+        "repo": "pip",
+        "baseline_total": 214,
+        "baseline_by_code": {
+          "assignment": 73,
+          "var-annotated": 29,
+          "attr-defined": 26,
+          "no-redef": 26,
+          "misc": 22,
+          "dict-item": 9,
+          "arg-type": 6,
+          "union-attr": 6,
+          "type-arg": 5,
+          "import-untyped": 3,
+          "return-value": 2,
+          "call-overload": 2,
+          "empty-body": 1,
+          "valid-type": 1,
+          "call-arg": 1,
+          "override": 1,
+          "method-assign": 1
+        },
+        "final_total": 208,
+        "final_by_code": {
+          "assignment": 71,
+          "var-annotated": 29,
+          "attr-defined": 26,
+          "no-redef": 26,
+          "misc": 22,
+          "dict-item": 9,
+          "union-attr": 7,
+          "arg-type": 6,
+          "import-untyped": 3,
+          "return-value": 3,
+          "call-overload": 2,
+          "empty-body": 1,
+          "call-arg": 1,
+          "override": 1,
+          "method-assign": 1
+        },
+        "removed_annotations": 8,
+        "files_touched": 4,
+        "annotation_error_lines": 115
+      },
+      "gradio": {
+        "repo": "gradio",
+        "baseline_total": 13,
+        "baseline_by_code": {
+          "import-untyped": 13
+        },
+        "final_total": 13,
+        "final_by_code": {
+          "import-untyped": 13
+        },
+        "removed_annotations": 0,
+        "files_touched": 0,
+        "annotation_error_lines": 0
+      },
+      "pydantic": {
+        "repo": "pydantic",
+        "baseline_total": 387,
+        "baseline_by_code": {
+          "dict-item": 134,
+          "assignment": 67,
+          "attr-defined": 43,
+          "index": 43,
+          "arg-type": 33,
+          "return-value": 13,
+          "operator": 10,
+          "misc": 7,
+          "union-attr": 7,
+          "valid-type": 5,
+          "call-arg": 4,
+          "literal-required": 3,
+          "typeddict-unknown-key": 3,
+          "return": 2,
+          "call-overload": 2,
+          "truthy-function": 2,
+          "typeddict-item": 2,
+          "method-assign": 2,
+          "import-untyped": 1,
+          "type-arg": 1,
+          "var-annotated": 1,
+          "list-item": 1,
+          "override": 1
+        },
+        "final_total": 345,
+        "final_by_code": {
+          "dict-item": 134,
+          "attr-defined": 43,
+          "index": 43,
+          "arg-type": 32,
+          "assignment": 29,
+          "return-value": 13,
+          "operator": 10,
+          "misc": 7,
+          "union-attr": 7,
+          "valid-type": 5,
+          "call-arg": 4,
+          "literal-required": 3,
+          "typeddict-unknown-key": 3,
+          "truthy-function": 2,
+          "typeddict-item": 2,
+          "method-assign": 2,
+          "import-untyped": 1,
+          "type-arg": 1,
+          "call-overload": 1,
+          "var-annotated": 1,
+          "list-item": 1,
+          "override": 1
+        },
+        "removed_annotations": 49,
+        "files_touched": 8,
+        "annotation_error_lines": 111
+      }
+    },
+    "validation": {
+      "typer": {
+        "repo": "typer",
+        "baseline_total": 2,
+        "baseline_by_code": {
+          "arg-type": 2
+        },
+        "final_total": 2,
+        "final_by_code": {
+          "arg-type": 2
+        },
+        "removed_annotations": 0,
+        "files_touched": 0,
+        "annotation_error_lines": 2
+      },
+      "pre-commit": {
+        "repo": "pre-commit",
+        "baseline_total": 9,
+        "baseline_by_code": {
+          "import-untyped": 4,
+          "attr-defined": 4,
+          "arg-type": 1
+        },
+        "final_total": 9,
+        "final_by_code": {
+          "import-untyped": 4,
+          "attr-defined": 4,
+          "arg-type": 1
+        },
+        "removed_annotations": 0,
+        "files_touched": 0,
+        "annotation_error_lines": 1
+      },
+      "flask": {
+        "repo": "flask",
+        "baseline_total": 3,
+        "baseline_by_code": {
+          "arg-type": 2,
+          "attr-defined": 1
+        },
+        "final_total": 3,
+        "final_by_code": {
+          "arg-type": 2,
+          "attr-defined": 1
+        },
+        "removed_annotations": 0,
+        "files_touched": 0,
+        "annotation_error_lines": 2
+      },
+      "pdm": {
+        "repo": "pdm",
+        "baseline_total": 47,
+        "baseline_by_code": {
+          "arg-type": 19,
+          "attr-defined": 19,
+          "union-attr": 2,
+          "override": 2,
+          "return-value": 2,
+          "assignment": 2,
+          "call-overload": 1
+        },
+        "final_total": 47,
+        "final_by_code": {
+          "arg-type": 19,
+          "attr-defined": 19,
+          "return-value": 3,
+          "union-attr": 2,
+          "override": 2,
+          "assignment": 1,
+          "call-overload": 1
+        },
+        "removed_annotations": 1,
+        "files_touched": 1,
+        "annotation_error_lines": 15
+      },
+      "manim": {
+        "repo": "manim",
+        "baseline_total": 470,
+        "baseline_by_code": {
+          "attr-defined": 102,
+          "arg-type": 95,
+          "assignment": 49,
+          "override": 43,
+          "return-value": 37,
+          "var-annotated": 35,
+          "union-attr": 22,
+          "misc": 18,
+          "name-defined": 17,
+          "index": 10,
+          "no-redef": 9,
+          "operator": 9,
+          "call-overload": 8,
+          "call-arg": 4,
+          "return": 3,
+          "type-var": 3,
+          "valid-type": 2,
+          "import-untyped": 1,
+          "list-item": 1,
+          "method-assign": 1,
+          "has-type": 1
+        },
+        "final_total": 447,
+        "final_by_code": {
+          "attr-defined": 95,
+          "arg-type": 92,
+          "override": 43,
+          "assignment": 41,
+          "return-value": 37,
+          "var-annotated": 35,
+          "union-attr": 22,
+          "misc": 18,
+          "name-defined": 17,
+          "index": 9,
+          "no-redef": 9,
+          "call-overload": 8,
+          "operator": 8,
+          "type-var": 5,
+          "call-arg": 4,
+          "import-untyped": 1,
+          "list-item": 1,
+          "method-assign": 1,
+          "has-type": 1
+        },
+        "removed_annotations": 22,
+        "files_touched": 11,
+        "annotation_error_lines": 190
+      },
+      "nicegui": {
+        "repo": "nicegui",
+        "baseline_total": 15,
+        "baseline_by_code": {
+          "has-type": 6,
+          "import-untyped": 5,
+          "assignment": 1,
+          "arg-type": 1,
+          "call-arg": 1,
+          "attr-defined": 1
+        },
+        "final_total": 15,
+        "final_by_code": {
+          "has-type": 6,
+          "import-untyped": 5,
+          "assignment": 1,
+          "arg-type": 1,
+          "call-arg": 1,
+          "attr-defined": 1
+        },
+        "removed_annotations": 0,
+        "files_touched": 0,
+        "annotation_error_lines": 2
+      },
+      "openai-python": {
+        "repo": "openai-python",
+        "baseline_total": 19,
+        "baseline_by_code": {
+          "has-type": 8,
+          "misc": 4,
+          "call-arg": 3,
+          "return-value": 2,
+          "override": 2
+        },
+        "final_total": 19,
+        "final_by_code": {
+          "has-type": 8,
+          "misc": 4,
+          "call-arg": 3,
+          "return-value": 2,
+          "override": 2
+        },
+        "removed_annotations": 0,
+        "files_touched": 0,
+        "annotation_error_lines": 2
+      },
+      "taipy": {
+        "repo": "taipy",
+        "baseline_total": 31,
+        "baseline_by_code": {
+          "assignment": 21,
+          "attr-defined": 6,
+          "import-untyped": 2,
+          "arg-type": 1,
+          "index": 1
+        },
+        "final_total": 11,
+        "final_by_code": {
+          "attr-defined": 6,
+          "import-untyped": 2,
+          "arg-type": 1,
+          "index": 1,
+          "assignment": 1
+        },
+        "removed_annotations": 26,
+        "files_touched": 10,
+        "annotation_error_lines": 22
+      },
+      "OpenBB": {
+        "repo": "OpenBB",
+        "baseline_total": 206,
+        "baseline_by_code": {
+          "import-untyped": 92,
+          "assignment": 33,
+          "arg-type": 22,
+          "call-overload": 17,
+          "union-attr": 13,
+          "dict-item": 10,
+          "attr-defined": 7,
+          "return-value": 6,
+          "index": 2,
+          "var-annotated": 1,
+          "operator": 1,
+          "list-item": 1,
+          "call-arg": 1
+        },
+        "final_total": 175,
+        "final_by_code": {
+          "import-untyped": 92,
+          "arg-type": 23,
+          "call-overload": 17,
+          "union-attr": 13,
+          "dict-item": 10,
+          "attr-defined": 7,
+          "return-value": 6,
+          "index": 2,
+          "var-annotated": 1,
+          "operator": 1,
+          "list-item": 1,
+          "call-arg": 1,
+          "assignment": 1
+        },
+        "removed_annotations": 34,
+        "files_touched": 19,
+        "annotation_error_lines": 61
+      },
+      "capa": {
+        "repo": "capa",
+        "baseline_total": 3,
+        "baseline_by_code": {
+          "import-untyped": 1,
+          "arg-type": 1,
+          "return-value": 1
+        },
+        "final_total": 3,
+        "final_by_code": {
+          "import-untyped": 1,
+          "arg-type": 1,
+          "return-value": 1
+        },
+        "removed_annotations": 0,
+        "files_touched": 0,
+        "annotation_error_lines": 2
+      }
+    },
+    "test": {
+      "private-gpt": {
+        "repo": "private-gpt",
+        "baseline_total": 19,
+        "baseline_by_code": {
+          "assignment": 11,
+          "import-untyped": 3,
+          "arg-type": 3,
+          "union-attr": 2
+        },
+        "final_total": 18,
+        "final_by_code": {
+          "arg-type": 5,
+          "operator": 4,
+          "import-untyped": 3,
+          "assignment": 3,
+          "union-attr": 2,
+          "dict-item": 1
+        },
+        "removed_annotations": 11,
+        "files_touched": 1,
+        "annotation_error_lines": 14
+      },
+      "gptme": {
+        "repo": "gptme",
+        "baseline_total": 25,
+        "baseline_by_code": {
+          "attr-defined": 19,
+          "union-attr": 4,
+          "import-untyped": 2
+        },
+        "final_total": 25,
+        "final_by_code": {
+          "attr-defined": 19,
+          "union-attr": 4,
+          "import-untyped": 2
+        },
+        "removed_annotations": 0,
+        "files_touched": 0,
+        "annotation_error_lines": 0
+      },
+      "paper-qa": {
+        "repo": "paper-qa",
+        "baseline_total": 25,
+        "baseline_by_code": {
+          "arg-type": 20,
+          "union-attr": 5
+        },
+        "final_total": 26,
+        "final_by_code": {
+          "arg-type": 20,
+          "union-attr": 5,
+          "var-annotated": 1
+        },
+        "removed_annotations": 1,
+        "files_touched": 1,
+        "annotation_error_lines": 6
+      },
+      "pandas-ai": {
+        "repo": "pandas-ai",
+        "baseline_total": 0,
+        "baseline_by_code": {},
+        "final_total": 0,
+        "final_by_code": {},
+        "removed_annotations": 0,
+        "files_touched": 0,
+        "annotation_error_lines": 0
+      },
+      "supervision": {
+        "repo": "supervision",
+        "baseline_total": 155,
+        "baseline_by_code": {
+          "arg-type": 51,
+          "assignment": 36,
+          "union-attr": 13,
+          "index": 10,
+          "misc": 9,
+          "return-value": 9,
+          "var-annotated": 6,
+          "operator": 6,
+          "call-overload": 5,
+          "attr-defined": 3,
+          "import-untyped": 2,
+          "override": 2,
+          "type-var": 1,
+          "list-item": 1,
+          "valid-type": 1
+        },
+        "final_total": 154,
+        "final_by_code": {
+          "arg-type": 51,
+          "assignment": 36,
+          "union-attr": 13,
+          "index": 10,
+          "misc": 9,
+          "return-value": 9,
+          "var-annotated": 6,
+          "operator": 6,
+          "call-overload": 5,
+          "attr-defined": 3,
+          "import-untyped": 2,
+          "override": 2,
+          "type-var": 1,
+          "list-item": 1
+        },
+        "removed_annotations": 1,
+        "files_touched": 1,
+        "annotation_error_lines": 90
+      },
+      "gpt4free": {
+        "repo": "gpt4free",
+        "baseline_total": 0,
+        "baseline_by_code": {},
+        "final_total": 0,
+        "final_by_code": {},
+        "removed_annotations": 0,
+        "files_touched": 0,
+        "annotation_error_lines": 0
+      },
+      "AutoGPT": {
+        "repo": "AutoGPT",
+        "baseline_total": 1,
+        "baseline_by_code": {
+          "syntax": 1
+        },
+        "final_total": 1,
+        "final_by_code": {
+          "syntax": 1
+        },
+        "removed_annotations": 0,
+        "files_touched": 0,
+        "annotation_error_lines": 0
+      },
+      "mlc-llm": {
+        "repo": "mlc-llm",
+        "baseline_total": 0,
+        "baseline_by_code": {},
+        "final_total": 0,
+        "final_by_code": {},
+        "removed_annotations": 0,
+        "files_touched": 0,
+        "annotation_error_lines": 0
+      },
+      "DB-GPT": {
+        "repo": "DB-GPT",
+        "baseline_total": 2364,
+        "baseline_by_code": {
+          "call-arg": 700,
+          "arg-type": 489,
+          "assignment": 418,
+          "union-attr": 163,
+          "attr-defined": 100,
+          "index": 80,
+          "return-value": 77,
+          "misc": 69,
+          "override": 56,
+          "var-annotated": 49,
+          "no-redef": 22,
+          "operator": 21,
+          "truthy-function": 17,
+          "empty-body": 15,
+          "import-untyped": 14,
+          "has-type": 12,
+          "list-item": 12,
+          "type-var": 9,
+          "return": 8,
+          "call-overload": 5,
+          "str-bytes-safe": 5,
+          "func-returns-value": 5,
+          "name-defined": 5,
+          "typeddict-item": 4,
+          "valid-type": 3,
+          "dict-item": 3,
+          "type-abstract": 2,
+          "syntax": 1
+        },
+        "final_total": 2034,
+        "final_by_code": {
+          "call-arg": 721,
+          "arg-type": 432,
+          "union-attr": 170,
+          "assignment": 129,
+          "attr-defined": 111,
+          "index": 78,
+          "return-value": 71,
+          "misc": 69,
+          "var-annotated": 51,
+          "override": 39,
+          "has-type": 31,
+          "operator": 27,
+          "no-redef": 22,
+          "empty-body": 15,
+          "import-untyped": 14,
+          "list-item": 11,
+          "type-var": 9,
+          "call-overload": 5,
+          "str-bytes-safe": 5,
+          "truthy-function": 5,
+          "name-defined": 5,
+          "typeddict-item": 4,
+          "func-returns-value": 4,
+          "dict-item": 3,
+          "type-abstract": 2,
+          "syntax": 1
+        },
+        "removed_annotations": 357,
+        "files_touched": 92,
+        "annotation_error_lines": 933
+      },
+      "vllm": {
+        "repo": "vllm",
+        "baseline_total": 0,
+        "baseline_by_code": {},
+        "final_total": 0,
+        "final_by_code": {},
+        "removed_annotations": 0,
+        "files_touched": 0,
+        "annotation_error_lines": 0
+      },
+      "screenshot-to-code": {
+        "repo": "screenshot-to-code",
+        "baseline_total": 0,
+        "baseline_by_code": {},
+        "final_total": 0,
+        "final_by_code": {},
+        "removed_annotations": 0,
+        "files_touched": 0,
+        "annotation_error_lines": 0
+      },
+      "composio": {
+        "repo": "composio",
+        "baseline_total": 0,
+        "baseline_by_code": {},
+        "final_total": 0,
+        "final_by_code": {},
+        "removed_annotations": 0,
+        "files_touched": 0,
+        "annotation_error_lines": 0
+      },
+      "agents": {
+        "repo": "agents",
+        "baseline_total": 60,
+        "baseline_by_code": {
+          "name-defined": 31,
+          "attr-defined": 17,
+          "var-annotated": 4,
+          "arg-type": 4,
+          "union-attr": 2,
+          "call-arg": 1,
+          "assignment": 1
+        },
+        "final_total": 59,
+        "final_by_code": {
+          "name-defined": 31,
+          "attr-defined": 17,
+          "var-annotated": 4,
+          "arg-type": 4,
+          "union-attr": 2,
+          "call-arg": 1
+        },
+        "removed_annotations": 1,
+        "files_touched": 1,
+        "annotation_error_lines": 9
+      },
+      "unstract": {
+        "repo": "unstract",
+        "baseline_total": 0,
+        "baseline_by_code": {},
+        "final_total": 0,
+        "final_by_code": {},
+        "removed_annotations": 0,
+        "files_touched": 0,
+        "annotation_error_lines": 0
+      },
+      "TEN-Agent": {
+        "repo": "TEN-Agent",
+        "baseline_total": 0,
+        "baseline_by_code": {},
+        "final_total": 0,
+        "final_by_code": {},
+        "removed_annotations": 0,
+        "files_touched": 0,
+        "annotation_error_lines": 0
+      },
+      "gpt-pilot": {
+        "repo": "gpt-pilot",
+        "baseline_total": 0,
+        "baseline_by_code": {},
+        "final_total": 0,
+        "final_by_code": {},
+        "removed_annotations": 0,
+        "files_touched": 0,
+        "annotation_error_lines": 0
+      },
+      "lerobot": {
+        "repo": "lerobot",
+        "baseline_total": 363,
+        "baseline_by_code": {
+          "assignment": 99,
+          "arg-type": 56,
+          "attr-defined": 41,
+          "index": 29,
+          "operator": 26,
+          "union-attr": 19,
+          "var-annotated": 17,
+          "call-arg": 17,
+          "return-value": 16,
+          "misc": 10,
+          "call-overload": 9,
+          "has-type": 6,
+          "type-arg": 5,
+          "return": 5,
+          "dict-item": 3,
+          "override": 2,
+          "valid-type": 2,
+          "import-untyped": 1
+        },
+        "final_total": 348,
+        "final_by_code": {
+          "assignment": 97,
+          "arg-type": 56,
+          "attr-defined": 41,
+          "index": 28,
+          "operator": 26,
+          "union-attr": 19,
+          "var-annotated": 17,
+          "call-arg": 17,
+          "return-value": 16,
+          "misc": 10,
+          "call-overload": 9,
+          "has-type": 6,
+          "dict-item": 3,
+          "override": 2,
+          "import-untyped": 1
+        },
+        "removed_annotations": 17,
+        "files_touched": 9,
+        "annotation_error_lines": 193
+      },
+      "LLaMA-Factory": {
+        "repo": "LLaMA-Factory",
+        "baseline_total": 520,
+        "baseline_by_code": {
+          "arg-type": 130,
+          "attr-defined": 62,
+          "operator": 59,
+          "assignment": 55,
+          "return-value": 46,
+          "union-attr": 46,
+          "index": 24,
+          "var-annotated": 18,
+          "override": 17,
+          "misc": 11,
+          "list-item": 9,
+          "no-redef": 8,
+          "return": 8,
+          "call-overload": 7,
+          "has-type": 5,
+          "import-untyped": 3,
+          "str-format": 3,
+          "method-assign": 3,
+          "call-arg": 3,
+          "dict-item": 2,
+          "typeddict-item": 1
+        },
+        "final_total": 506,
+        "final_by_code": {
+          "arg-type": 127,
+          "attr-defined": 62,
+          "operator": 60,
+          "union-attr": 50,
+          "assignment": 47,
+          "return-value": 45,
+          "index": 26,
+          "var-annotated": 18,
+          "override": 17,
+          "misc": 10,
+          "list-item": 9,
+          "no-redef": 8,
+          "call-overload": 7,
+          "has-type": 5,
+          "import-untyped": 3,
+          "str-format": 3,
+          "method-assign": 3,
+          "call-arg": 3,
+          "dict-item": 2,
+          "typeddict-item": 1
+        },
+        "removed_annotations": 28,
+        "files_touched": 13,
+        "annotation_error_lines": 245
+      },
+      "appworld": {
+        "repo": "appworld",
+        "baseline_total": 1374,
+        "baseline_by_code": {
+          "name-defined": 811,
+          "arg-type": 161,
+          "assignment": 82,
+          "union-attr": 80,
+          "return-value": 56,
+          "attr-defined": 46,
+          "no-redef": 33,
+          "operator": 23,
+          "valid-type": 17,
+          "var-annotated": 16,
+          "index": 11,
+          "call-arg": 9,
+          "misc": 7,
+          "import-untyped": 4,
+          "type-var": 4,
+          "call-overload": 4,
+          "dict-item": 4,
+          "return": 2,
+          "typeddict-item": 2,
+          "method-assign": 1,
+          "has-type": 1
+        },
+        "final_total": 1326,
+        "final_by_code": {
+          "name-defined": 811,
+          "arg-type": 160,
+          "union-attr": 80,
+          "return-value": 55,
+          "assignment": 54,
+          "attr-defined": 34,
+          "no-redef": 33,
+          "operator": 23,
+          "var-annotated": 16,
+          "index": 11,
+          "call-arg": 9,
+          "misc": 6,
+          "has-type": 6,
+          "used-before-def": 5,
+          "import-untyped": 4,
+          "type-var": 4,
+          "valid-type": 4,
+          "call-overload": 4,
+          "dict-item": 4,
+          "typeddict-item": 2,
+          "method-assign": 1
+        },
+        "removed_annotations": 50,
+        "files_touched": 6,
+        "annotation_error_lines": 264
+      },
+      "exo": {
+        "repo": "exo",
+        "baseline_total": 140,
+        "baseline_by_code": {
+          "attr-defined": 35,
+          "arg-type": 27,
+          "assignment": 25,
+          "has-type": 7,
+          "operator": 7,
+          "misc": 6,
+          "import-untyped": 5,
+          "call-arg": 5,
+          "no-redef": 4,
+          "valid-type": 4,
+          "index": 4,
+          "syntax": 4,
+          "return-value": 3,
+          "var-annotated": 1,
+          "name-defined": 1,
+          "call-overload": 1,
+          "union-attr": 1
+        },
+        "final_total": 130,
+        "final_by_code": {
+          "attr-defined": 29,
+          "arg-type": 27,
+          "assignment": 16,
+          "has-type": 13,
+          "operator": 10,
+          "misc": 6,
+          "import-untyped": 5,
+          "call-arg": 5,
+          "no-redef": 4,
+          "index": 4,
+          "syntax": 4,
+          "return-value": 3,
+          "var-annotated": 1,
+          "name-defined": 1,
+          "call-overload": 1,
+          "union-attr": 1
+        },
+        "removed_annotations": 34,
+        "files_touched": 8,
+        "annotation_error_lines": 56
+      }
+    }
+  }
+}

@@ -5,12 +5,15 @@ import json
 import re
 import shutil
 import subprocess
+import sys
 from typing import Dict, List, Tuple, Set, Optional
 from collections import defaultdict
 from datetime import datetime
 
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from paths import THESIS_DATA
 
-BASE_PATH = r"C:\Users\hp\Downloads\typybenchdata\typybenchdata"
+BASE_PATH = THESIS_DATA
 
 TRAINING_REPOS = [
     "pre-commit-hooks", "flake8", "vnpy", "GHunt", "spotify-downloader",
@@ -277,6 +280,34 @@ def clean_file(src_path: str, dst_path: str, invalid_lines: Set[int]) -> int:
         f.write(new_source)
     return len(merge_ranges(removals))
 
+def find_function_for_line(file_path: str, line: int) -> Optional[str]:
+    """
+    Parse the file and return the name of the innermost function that
+    contains the given line. Return None if the line is not inside any
+    function.
+    """
+    try:
+        with open(file_path, "r", encoding="utf-8", errors="ignore") as f:
+            src = f.read()
+    except Exception:
+        return None
+    try:
+        tree = ast.parse(src)
+    except SyntaxError:
+        return None
+
+    candidates = []
+    for node in ast.walk(tree):
+        if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)):
+            start = node.lineno
+            end = getattr(node, "end_lineno", start)
+            if start <= line <= end:
+                candidates.append((start, end, node.name))
+
+    if not candidates:
+        return None
+    candidates.sort(key=lambda t: t[0], reverse=True)
+    return candidates[0][2]
 
 def process_repository(repo_name: str, repo_path: str, output_root: str) -> Dict:
     original_path = os.path.join(repo_path, "original_repo")
@@ -340,10 +371,13 @@ def process_repository(repo_name: str, repo_path: str, output_root: str) -> Dict
             rel = os.path.relpath(r["file"], clean_path)
         except ValueError:
             rel = r["file"]
+        abs_file = os.path.join(clean_path, rel)
+        function = find_function_for_line(abs_file, r["line"])
         final_errors.append({
             "file": rel,
             "line": r["line"],
             "col": r["col"],
+            "function": function,
             "code": r["code"],
             "message": r["msg"],
             "annotation_caused": r["code"] in ANNOTATION_ERROR_CODES,

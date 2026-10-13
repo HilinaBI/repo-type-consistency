@@ -1,10 +1,11 @@
-
-import ast
 import json
 import os
+import sys
 
-CLEAN_REPOS = r"C:\Users\hp\Downloads\typybenchdata\typybenchdata\cleaned_repos"
-REPORT = r"C:\Users\hp\Downloads\typybenchdata\typybenchdata\ground_truth_validation_mypy_only\mypy_detailed_report.json"
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from paths import CLEAN_REPOS, REPORTS_DIR, FILTERED_DIR
+
+REPORT = os.path.join(REPORTS_DIR, "mypy_detailed_report.json")
 
 FILES = [
     ("CODET5_DATASET_CLEAN_NORMALIZED_α1.0_VARIANTS.jsonl",
@@ -18,61 +19,21 @@ FILES = [
 ]
 
 
-def parse_error_path(raw_path, repo):
-    p = raw_path.replace("\\", "/")
-    prefix = f"../../../{repo}/original_repo/"
-    if p.startswith(prefix):
-        return p[len(prefix):]
-    marker = "/original_repo/"
-    if marker in p:
-        return p.split(marker, 1)[1]
-    return p
-
-
-def find_functions_in_file(file_path):
-    try:
-        with open(file_path, "r", encoding="utf-8", errors="ignore") as f:
-            src = f.read()
-    except Exception:
-        return []
-    try:
-        tree = ast.parse(src)
-    except SyntaxError:
-        return []
-    out = []
-    for node in ast.walk(tree):
-        if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)):
-            start = node.lineno
-            end = getattr(node, "end_lineno", start)
-            out.append((node.name, start, end))
-    return out
-
-
 def build_error_function_index(report):
     per_repo = {}
     for split in report["by_split"].values():
         for repo, data in split.items():
             if not data.get("final_errors"):
                 continue
-            repo_clean_root = os.path.join(CLEAN_REPOS, repo, "original_repo_clean")
-            if not os.path.isdir(repo_clean_root):
-                continue
             error_funcs = per_repo.setdefault(repo, set())
-            file_cache = {}
             for e in data["final_errors"]:
-                rel = parse_error_path(e["file"], repo)
-                full = os.path.join(repo_clean_root, rel)
-                if full not in file_cache:
-                    file_cache[full] = find_functions_in_file(full)
-                for name, start, end in file_cache[full]:
-                    if start <= e["line"] <= end:
-                        error_funcs.add(name)
-                        break
+                function = e.get("function")
+                if function:
+                    error_funcs.add(function)
     return per_repo
 
 
 def parse_id(example_id):
-    # Strip known prefixes
     for prefix in ("val_", "infer_", "test_"):
         if example_id.startswith(prefix):
             example_id = example_id[len(prefix):]
@@ -96,11 +57,11 @@ def parse_id(example_id):
     return repo, function
 
 
-def filter_one_file(input_path, output_path, error_funcs_per_repo, force=False):
+def filter_one_file(input_path, output_path, error_funcs_per_repo):
     if not os.path.exists(input_path):
         print(f"  SKIP (input not found):  {os.path.basename(input_path)}")
         return
-    if os.path.exists(output_path) and not force:
+    if os.path.exists(output_path):
         print(f"  SKIP (output exists):    {os.path.basename(output_path)}")
         return
 
@@ -134,10 +95,12 @@ def filter_one_file(input_path, output_path, error_funcs_per_repo, force=False):
     pct = (dropped / total * 100) if total else 0.0
     print(f"  {os.path.basename(input_path)}")
     print(f"    total={total}  kept={kept}  dropped={dropped}  ({pct:.2f}%)")
-    print(f"    -> {os.path.basename(output_path)}")
+    print(f"    -> {output_path}")
 
 
 def main():
+    os.makedirs(FILTERED_DIR, exist_ok=True)
+
     print("Loading error report...")
     with open(REPORT, "r", encoding="utf-8") as f:
         report = json.load(f)
@@ -148,13 +111,12 @@ def main():
     print("\nFiltering datasets...")
     for input_name, output_name in FILES:
         input_path = os.path.join(CLEAN_REPOS, input_name)
-        output_path = os.path.join(CLEAN_REPOS, output_name)
-        # force=True so we redo the ones that previously got 0% by mistake
-        filter_one_file(input_path, output_path, error_funcs_per_repo, force=True)
+        output_path = os.path.join(FILTERED_DIR, output_name)
+        filter_one_file(input_path, output_path, error_funcs_per_repo)
 
     print("\nDone.")
-    print("Originals are untouched. Filtered files have '_filtered' in the name.")
-    print(f"Folder: {CLEAN_REPOS}")
+    print("Originals are untouched.")
+    print(f"Filtered files: {FILTERED_DIR}")
 
 
 if __name__ == "__main__":
