@@ -1,0 +1,337 @@
+﻿ERROR ANALYSIS REPORT
+Generated from: mypy_detailed_report.json
+
+GLOBAL TOTALS
+  Total remaining errors          : 9081
+  Annotation-caused (of the total): 3544
+  Not annotation-caused           : 5537
+
+RESOLVABILITY SUMMARY
+  code-fixable : 8551
+  environment : 521
+  structural : 6
+  other : 3
+
+ERRORS BY CODE
+
+[assignment]  count=1540  resolvability=code-fixable
+    description: Value assigned does not match its annotation
+    repos: vnpy, GHunt, deepface, fastapi, haystack, faceswap, streamlit, phidata, Pillow, sphinx, pip, pydantic, pdm, manim, nicegui, taipy, OpenBB, private-gpt, supervision, DB-GPT, agents, lerobot, LLaMA-Factory, appworld, exo
+    example 1 : vnpy\trader\locale\__init__.py:7
+                 Incompatible types in assignment (expression has type "NullTranslations", variable has type "GNUTranslations")
+    example 2 : vnpy\trader\object.py:95
+                 Incompatible types in assignment (expression has type "None", variable has type "Interval")
+
+[call-arg]  count=1539  resolvability=code-fixable
+    description: Wrong number of arguments in a call
+    repos: streamlit, phidata, pip, pydantic, manim, nicegui, openai-python, OpenBB, DB-GPT, agents, lerobot, LLaMA-Factory, appworld, exo
+    example 1 : e2e_playwright\shared\data_mocks.py:41
+                 Missing positional argument "__test__" in call to "TestCaseMetadata"
+    example 2 : e2e_playwright\shared\data_mocks.py:43
+                 Missing positional argument "__test__" in call to "TestCaseMetadata"
+
+[arg-type]  count=1340  resolvability=code-fixable
+    description: Wrong argument type in a call
+    repos: vnpy, GHunt, deepface, fastapi, haystack, black, faceswap, phidata, Pillow, sphinx, pip, pydantic, typer, pre-commit, flask, pdm, manim, nicegui, taipy, OpenBB, capa, private-gpt, paper-qa, supervision, DB-GPT, agents, lerobot, LLaMA-Factory, appworld, exo
+    example 1 : vnpy\rpc\server.py:113
+                 Argument 1 to "unbind" of "Socket" has incompatible type "str | bytes | int"; expected "str"
+    example 2 : vnpy\rpc\server.py:114
+                 Argument 1 to "unbind" of "Socket" has incompatible type "str | bytes | int"; expected "str"
+
+[name-defined]  count=895  resolvability=code-fixable
+    description: A name is used but never imported or defined
+    repos: deepface, black, manim, DB-GPT, agents, lerobot, LLaMA-Factory, appworld, exo
+    example 1 : deepface\modules\modeling.py:91
+                 Name "cached_models" is not defined
+    example 2 : deepface\modules\modeling.py:93
+                 Name "cached_models" is not defined
+
+[attr-defined]  count=783  resolvability=code-fixable
+    description: An attribute does not exist on the type
+    repos: vnpy, GHunt, deepface, urllib3, fastapi, poetry, haystack, black, streamlit, phidata, Pillow, sphinx, pip, pydantic, pre-commit, flask, pdm, manim, nicegui, taipy, OpenBB, gptme, paper-qa, supervision, DB-GPT, agents, lerobot, LLaMA-Factory, appworld, exo
+    example 1 : vnpy\trader\converter.py:24
+                 "MainEngine" has no attribute "get_contract"
+    example 2 : vnpy\trader\engine.py:367
+                 "MainEngine" has no attribute "get_tick"
+
+[import-untyped]  count=521  resolvability=environment
+    description: Imported module has no type information
+    repos: GHunt, spotify-downloader, deepface, fastapi, poetry, haystack, black, faceswap, streamlit, phidata, sphinx, pip, gradio, pydantic, pre-commit, manim, nicegui, taipy, OpenBB, capa, private-gpt, gptme, supervision, DB-GPT, lerobot, LLaMA-Factory, appworld, exo
+    example 1 : ghunt\objects\base.py:4
+                 Library stubs not installed for "dateutil.relativedelta"
+    example 2 : ghunt\helpers\gmaps.py:1
+                 Library stubs not installed for "dateutil.relativedelta"
+
+[union-attr]  count=477  resolvability=code-fixable
+    description: Attribute access on a union type
+    repos: GHunt, deepface, faceswap, streamlit, phidata, Pillow, sphinx, pip, pydantic, pdm, manim, OpenBB, private-gpt, gptme, paper-qa, supervision, DB-GPT, agents, lerobot, LLaMA-Factory, appworld, exo
+    example 1 : ghunt\apis\accounts.py:39
+                 Item "None" of "FrameType | None" has no attribute "f_code"
+    example 2 : ghunt\apis\vision.py:38
+                 Item "None" of "FrameType | None" has no attribute "f_code"
+
+[return-value]  count=307  resolvability=code-fixable
+    description: Returned value does not match the return annotation
+    repos: vnpy, GHunt, faceswap, streamlit, Pillow, sphinx, pip, pydantic, pdm, manim, openai-python, OpenBB, capa, supervision, DB-GPT, lerobot, LLaMA-Factory, appworld, exo
+    example 1 : vnpy\trader\optimize.py:241
+                 Incompatible return value type (got "tuple[float]", expected "float")
+    example 2 : vnpy\trader\utility.py:880
+                 Incompatible return value type (got "tuple[float | ndarray[Any, Any], float | ndarray[Any, Any]]", expected "tuple[ndarray[Any, Any], ndarray[Any, Any]] | tuple[float, float]")
+
+[index]  count=223  resolvability=code-fixable
+    description: Invalid index type
+    repos: vnpy, GHunt, deepface, pydantic, manim, taipy, OpenBB, supervision, DB-GPT, lerobot, LLaMA-Factory, appworld, exo
+    example 1 : vnpy\chart\manager.py:122
+                 Invalid index type "tuple[float, float]" for "dict[tuple[int, int], tuple[float, float]]"; expected type "tuple[int, int]"
+    example 2 : vnpy\chart\manager.py:153
+                 Invalid index type "tuple[float, float]" for "dict[tuple[int, int], tuple[float, float]]"; expected type "tuple[int, int]"
+
+[var-annotated]  count=196  resolvability=code-fixable
+    description: Mypy wants an annotation for a variable
+    repos: GHunt, deepface, Pillow, pip, pydantic, manim, OpenBB, supervision, DB-GPT, agents, lerobot, LLaMA-Factory, appworld, exo
+    example 1 : ghunt\helpers\gmaps.py:53
+                 Need type annotation for "stats" (hint: "stats: dict[<type>, <type>] = ...")
+    example 2 : ghunt\helpers\gmaps.py:215
+                 Need type annotation for "locations" (hint: "locations: dict[<type>, <type>] = ...")
+
+[operator]  count=194  resolvability=code-fixable
+    description: Unsupported operand types for this operator
+    repos: flake8, deepface, faceswap, phidata, Pillow, sphinx, pydantic, manim, OpenBB, supervision, DB-GPT, lerobot, LLaMA-Factory, appworld, exo
+    example 1 : src\flake8\processor.py:217
+                 Unsupported operand types for - ("None" and "int")
+    example 2 : deepface\modules\recognition.py:569
+                 Unsupported operand type for ~ ("list[bool]")
+
+[no-redef]  count=188  resolvability=code-fixable
+    description: Name is redefined in the same scope
+    repos: vnpy, streamlit, Pillow, pip, manim, DB-GPT, LLaMA-Factory, appworld, exo
+    example 1 : vnpy\rpc\server.py:107
+                 Name "rep" already defined on line 105
+    example 2 : vnpy\trader\optimize.py:237
+                 Name "result" already defined on line 234
+
+[misc]  count=185  resolvability=code-fixable
+    description: Miscellaneous type error
+    repos: vnpy, GHunt, urllib3, faceswap, streamlit, Pillow, sphinx, pip, pydantic, manim, openai-python, supervision, DB-GPT, lerobot, LLaMA-Factory, appworld, exo
+    example 1 : vnpy\trader\optimize.py:143
+                 List comprehension has incompatible type List[list[tuple[Any, Any]]]; expected List[tuple[Any, ...]]
+    example 2 : vnpy\trader\optimize.py:237
+                 callable? not callable
+
+[dict-item]  count=167  resolvability=code-fixable
+    description: Dict value type mismatch
+    repos: GHunt, pip, pydantic, OpenBB, DB-GPT, lerobot, LLaMA-Factory, appworld
+    example 1 : ghunt\apis\vision.py:73
+                 Dict entry 0 has incompatible type "str": "dict[str, str]"; expected "dict[str, object]": "dict[str, str]"
+    example 2 : ghunt\apis\vision.py:79
+                 Dict entry 0 has incompatible type "str": "str"; expected "dict[str, object]": "str"
+
+[override]  count=130  resolvability=code-fixable
+    description: Method override signature incompatible with base class
+    repos: urllib3, faceswap, Pillow, pip, pydantic, pdm, manim, openai-python, supervision, DB-GPT, lerobot, LLaMA-Factory
+    example 1 : src\urllib3\response.py:1246
+                 Incompatible override of a setter type
+    example 2 : src\urllib3\http2\connection.py:143
+                 Signature of "putheader" incompatible with supertype "http.client.HTTPConnection"
+
+[valid-type]  count=111  resolvability=code-fixable
+    description: The annotation itself is invalid
+    repos: vnpy, GHunt, black, Pillow, pip, pydantic, manim, supervision, DB-GPT, lerobot, appworld, exo
+    example 1 : vnpy\trader\object.py:78
+                 Variable "vnpy.trader.object.TickData.datetime" is not valid as a type
+    example 2 : vnpy\event\engine.py:28
+                 Function "builtins.callable" is not valid as a type
+
+[call-overload]  count=66  resolvability=code-fixable
+    description: No overload matches the call
+    repos: vnpy, GHunt, deepface, pip, pydantic, pdm, manim, OpenBB, supervision, DB-GPT, lerobot, LLaMA-Factory, appworld, exo
+    example 1 : vnpy\chart\manager.py:75
+                 No overload variant of "get" of "dict" matches argument types "float", "None"
+    example 2 : vnpy\chart\manager.py:82
+                 No overload variant of "get" of "dict" matches argument types "float", "None"
+
+[has-type]  count=49  resolvability=code-fixable
+    description: Cannot determine the type of an expression
+    repos: GHunt, Pillow, manim, nicegui, openai-python, DB-GPT, lerobot, LLaMA-Factory, appworld, exo
+    example 1 : ghunt\helpers\auth.py:141
+                 Cannot determine type of "is_logged_in"
+    example 2 : ghunt\helpers\auth.py:145
+                 Cannot determine type of "uber_auth"
+
+[return]  count=34  resolvability=code-fixable
+    description: Function with a return annotation has no return statement
+    repos: vnpy, GHunt, poetry, pydantic, manim, DB-GPT, lerobot, LLaMA-Factory, appworld
+    example 1 : vnpy\trader\datafeed.py:22
+                 Missing return statement
+    example 2 : vnpy\trader\datafeed.py:28
+                 Missing return statement
+
+[list-item]  count=25  resolvability=code-fixable
+    description: List element type mismatch
+    repos: pydantic, manim, OpenBB, supervision, DB-GPT, LLaMA-Factory
+    example 1 : pydantic\_internal\_generate_schema.py:124
+                 List item 1 has incompatible type "<typing special form>"; expected "type"
+    example 2 : manimlib\animation\transform.py:107
+                 List item 2 has incompatible type "Mobject | None"; expected "Mobject"
+
+[truthy-function]  count=20  resolvability=code-fixable
+    description: Function is always truthy
+    repos: vnpy, pydantic, DB-GPT
+    example 1 : vnpy\trader\gateway.py:353
+                 Function "push_data_callback" could always be true in boolean context
+    example 2 : pydantic\v1\class_validators.py:282
+                 Function "f" could always be true in boolean context
+
+[empty-body]  count=18  resolvability=code-fixable
+    description: Function body is empty but returns a non-None value
+    repos: vnpy, pip, DB-GPT
+    example 1 : vnpy\trader\gateway.py:264
+                 Missing return statement
+    example 2 : vnpy\trader\datafeed.py:16
+                 Missing return statement
+
+[type-var]  count=17  resolvability=code-fixable
+    description: Type variable is used incorrectly
+    repos: manim, supervision, DB-GPT, appworld
+    example 1 : manimlib\mobject\svg\string_mobject.py:528
+                 Value of type variable "SubVmobjectType" of "VGroup" cannot be "Mobject"
+    example 2 : manimlib\animation\numbers.py:47
+                 Value of type variable "Scalable" of "interpolate" cannot be "float | complex"
+
+[type-arg]  count=11  resolvability=code-fixable
+    description: Generic type has the wrong number/kind of parameters
+    repos: pip, pydantic, lerobot
+    example 1 : src\pip\_vendor\cachecontrol\serialize.py:26
+                 "CaseInsensitiveDict" expects no type arguments, but 1 given
+    example 2 : src\pip\_vendor\cachecontrol\serialize.py:107
+                 "CaseInsensitiveDict" expects no type arguments, but 1 given
+
+[method-assign]  count=9  resolvability=code-fixable
+    description: Assigning to a method that is not assignable
+    repos: vnpy, pip, pydantic, manim, LLaMA-Factory, appworld
+    example 1 : vnpy\trader\gateway.py:306
+                 Cannot assign to a method
+    example 2 : src\pip\_internal\network\session.py:248
+                 Cannot assign to a method
+
+[typeddict-item]  count=9  resolvability=code-fixable
+    description: TypedDict entry type mismatch
+    repos: pydantic, DB-GPT, LLaMA-Factory, appworld
+    example 1 : pydantic\v1\networks.py:237
+                 Unsupported type "dict[str, str]" for ** expansion in TypedDict
+    example 2 : pydantic\_internal\_config.py:195
+                 Unsupported type "dict[str, str | Any | int]" for ** expansion in TypedDict
+
+[syntax]  count=6  resolvability=structural
+    description: Syntax error in the file
+    repos: AutoGPT, DB-GPT, exo
+    example 1 : classic\forge\forge\llm\providers\_openai_base.py:322
+                 Invalid "type: ignore" comment
+    example 2 : dbgpt\serve\agent\agents\expand\app_start_assisant_agent.py:72
+                 Syntax error in type annotation
+
+[func-returns-value]  count=5  resolvability=code-fixable
+    description: Function that returns a value used where none expected
+    repos: DB-GPT
+    example 1 : dbgpt\app\knowledge\_cli\knowledge_client.py:191
+                 "append" of "list" does not return a value (it only ever returns None)
+    example 2 : dbgpt\model\cluster\worker\manager.py:550
+                 Function does not return a value (it only ever returns None)
+
+[str-bytes-safe]  count=5  resolvability=code-fixable
+    description: Bytes used where str expected, or vice versa
+    repos: DB-GPT
+    example 1 : dbgpt\util\openai_utils.py:32
+                 If x = b'abc' then f"{x}" or "{}".format(x) produces "b'abc'", not "abc". If this is desired behavior, use f"{x!r}" or "{!r}".format(x). Otherwise, decode the bytes
+    example 2 : dbgpt\util\dbgpts\repo.py:253
+                 If x = b'abc' then f"{x}" or "{}".format(x) produces "b'abc'", not "abc". If this is desired behavior, use f"{x!r}" or "{!r}".format(x). Otherwise, decode the bytes
+
+[str-format]  count=3  resolvability=code-fixable
+    description: String format call has wrong types
+    repos: LLaMA-Factory
+    example 1 : src\llamafactory\train\callbacks.py:314
+                 Incompatible types in string interpolation (expression has type "str", placeholder has type "int | float")
+    example 2 : src\llamafactory\train\callbacks.py:314
+                 Incompatible types in string interpolation (expression has type "None", placeholder has type "int | float")
+
+[literal-required]  count=3  resolvability=code-fixable
+    description: Literal value not allowed here
+    repos: pydantic
+    example 1 : pydantic\_internal\_config.py:138
+                 TypedDict key must be a string literal; expected one of ("title", "model_title_generator", "field_title_generator", "str_to_lower", "str_to_upper", ...)
+    example 2 : pydantic\_internal\_known_annotated_metadata.py:237
+                 TypedDict key must be a string literal; expected one of ("function", "schema", "ref", "metadata", "serialization", ...)
+
+[typeddict-unknown-key]  count=3  resolvability=other
+    description: No description
+    repos: pydantic
+    example 1 : pydantic\_internal\_core_utils.py:339
+                 TypedDict "ComputedField" has no key "schema"
+    example 2 : pydantic\_internal\_core_utils.py:358
+                 TypedDict "ComputedField" has no key "schema"
+
+[type-abstract]  count=2  resolvability=code-fixable
+    description: Cannot instantiate abstract class
+    repos: DB-GPT
+    example 1 : dbgpt\util\dbgpts\loader.py:170
+                 Only concrete class can be given where "type[BaseOperator[Any]]" is expected
+    example 2 : dbgpt\util\dbgpts\loader.py:216
+                 Only concrete class can be given where "type[Resource[Any]]" is expected
+
+PER-REPO SUMMARY
+  Split: training
+    pre-commit-hooks : 0
+    flake8 : final=1  removed=0
+    vnpy : final=217  removed=0
+    GHunt : final=679  removed=0
+    spotify-downloader : final=12  removed=0
+    deepface : final=37  removed=0
+    urllib3 : final=12  removed=0
+    fastapi : final=10  removed=0
+    poetry : final=34  removed=0
+    haystack : final=17  removed=0
+    rich : 0
+    black : final=21  removed=0
+    faceswap : final=22  removed=0
+    streamlit : final=58  removed=0
+    phidata : final=811  removed=0
+    Pillow : final=88  removed=0
+    sphinx : final=473  removed=0
+    pip : final=214  removed=0
+    gradio : final=13  removed=0
+    pydantic : final=387  removed=0
+
+  Split: validation
+    typer : final=2  removed=0
+    pre-commit : final=9  removed=0
+    flask : final=3  removed=0
+    pdm : final=47  removed=0
+    manim : final=471  removed=0
+    nicegui : final=15  removed=0
+    openai-python : final=19  removed=0
+    taipy : final=39  removed=0
+    OpenBB : final=215  removed=0
+    capa : final=3  removed=0
+
+  Split: test
+    private-gpt : final=19  removed=0
+    gptme : final=25  removed=0
+    paper-qa : final=26  removed=0
+    pandas-ai : 0
+    supervision : final=155  removed=0
+    gpt4free : 0
+    AutoGPT : final=1  removed=0
+    mlc-llm : 0
+    DB-GPT : final=2373  removed=0
+    vllm : 0
+    screenshot-to-code : 0
+    composio : 0
+    agents : final=60  removed=0
+    unstract : 0
+    TEN-Agent : 0
+    gpt-pilot : 0
+    lerobot : final=410  removed=0
+    LLaMA-Factory : final=570  removed=0
+    appworld : final=1373  removed=0
+    exo : final=140  removed=0
+

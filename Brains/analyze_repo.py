@@ -527,7 +527,7 @@ class TypeHierarchy:
 # one mapped hierarchy instance
 HIER = TypeHierarchy()
 HONEST_NOMINAL, HONEST_SEMANTIC, HONEST_BASE, CONVERSIONS, OPERATIONS = initialize_honest_type_system(
-    path="complete_type_analysis.json",
+    path=os.path.join(os.path.dirname(os.path.abspath(__file__)), "complete_type_analysis.json"),
     hier=HIER,
     base=TIERED_MAPPINGS,
     repo_paths=None

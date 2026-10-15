@@ -1,8 +1,8 @@
 $ErrorActionPreference = "Stop"
 
 # Paths
-$inputJson  = "C:\Users\hp\Downloads\research\thesis pipeline\data_files\mypy_detailed_report.json"
-$outputTxt  = "C:\Users\hp\Downloads\research\thesis pipeline\data_files\error_analysis_report.txt"
+$inputJson  = "C:\Users\hp\Downloads\research\thesis pipeline\data_files\mypy_detailed_report_run2.json"
+$outputTxt  = "C:\Users\hp\Downloads\research\thesis pipeline\data_files\error_analysis_report_new.txt"
 
 # Load the JSON
 $json = Get-Content $inputJson -Raw | ConvertFrom-Json

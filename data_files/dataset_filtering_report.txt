@@ -1,0 +1,15 @@
+Loading error report...
+Building error-function index...
+
+Filtering datasets...
+  CODET5_DATASET_CLEAN_NORMALIZED_α1.0_VARIANTS.jsonl
+    total=217297  kept=185320  dropped=31977  (14.72%)
+    -> C:\Users\hp\Downloads\research\thesis pipeline\datasets\filtered\CODET5_DATASET_CLEAN_NORMALIZED_α1.0_VARIANTS_filtered.jsonl
+  SKIP (input not found):  CODET5_VALIDATION_NOTYPE_NORMALIZED_α0.5.jsonl
+  SKIP (input not found):  TEST_SET_INFERENCE_CODET5_NORMALIZED_clean.jsonl
+  SKIP (input not found):  TEST_SET_CORRUPTED_CODET5_NORMALIZED_clean.jsonl
+
+Done.
+Originals are untouched.
+Filtered files: C:\Users\hp\Downloads\research\thesis pipeline\datasets\filtered
+Drop log:       C:\Users\hp\Downloads\typybenchdata\typybenchdata\ground_truth_validation_mypy_only\dropped_examples_report.txt

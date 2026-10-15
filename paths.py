@@ -12,7 +12,8 @@ REPORTS_DIR = os.path.join(THESIS_DATA, "ground_truth_validation_mypy_only")
 DATASETS_DIR = CLEAN_REPOS
 
 FILTERED_DIR = os.path.join(HERE, "datasets", "filtered")
-
+UNFILTERED_CLEAN_DIR = os.path.join(HERE, "datasets", "unfiltered_from_clean")
+UNFILTERED_RAW_DIR = os.path.join(HERE, "datasets", "unfiltered_from_raw")
 BRAINS_DIR = os.path.join(HERE, "Brains")
 DATASET_CREATION_DIR = os.path.join(HERE, "Dataset creation")
 INJECTION_DIR = os.path.join(HERE, "injection")

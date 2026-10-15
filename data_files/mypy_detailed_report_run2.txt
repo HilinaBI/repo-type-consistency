@@ -1,0 +1,195 @@
+DETAILED MYPY REPORT (raw original repos)
+Generated: 2026-10-14 06:43:08.360981
+
+GLOBAL TOTALS
+  Total errors : 9081
+
+ERRORS BY CODE
+  [assignment] Value assigned does not match its annotation (annotation-caused)
+      count: 1540
+      in 381 files across 25 repos
+
+  [call-arg] Wrong number of arguments in a call (not annotation-caused)
+      count: 1539
+      in 502 files across 14 repos
+
+  [arg-type] Wrong argument type in a call (annotation-caused)
+      count: 1340
+      in 374 files across 30 repos
+
+  [name-defined] A name is used but never imported or defined (not annotation-caused)
+      count: 895
+      in 33 files across 9 repos
+
+  [attr-defined] An attribute does not exist on the type (not annotation-caused)
+      count: 783
+      in 262 files across 30 repos
+
+  [import-untyped] Imported module has no type information (not annotation-caused)
+      count: 521
+      in 313 files across 28 repos
+
+  [union-attr] Attribute access on a union type (not annotation-caused)
+      count: 477
+      in 157 files across 22 repos
+
+  [return-value] Returned value does not match the return annotation (annotation-caused)
+      count: 307
+      in 162 files across 19 repos
+
+  [index] Invalid index type (not annotation-caused)
+      count: 223
+      in 54 files across 13 repos
+
+  [var-annotated] Mypy wants an annotation for a variable (annotation-caused)
+      count: 196
+      in 128 files across 14 repos
+
+  [operator] Unsupported operand types for this operator (not annotation-caused)
+      count: 194
+      in 72 files across 15 repos
+
+  [no-redef] Name is redefined in the same scope (not annotation-caused)
+      count: 188
+      in 67 files across 9 repos
+
+  [misc] Miscellaneous type error (not annotation-caused)
+      count: 185
+      in 103 files across 17 repos
+
+  [dict-item] Dict value type mismatch (not annotation-caused)
+      count: 167
+      in 13 files across 8 repos
+
+  [override] Method override signature incompatible with base class (not annotation-caused)
+      count: 130
+      in 75 files across 12 repos
+
+  [valid-type] The annotation itself is invalid (annotation-caused)
+      count: 111
+      in 35 files across 12 repos
+
+  [call-overload] No overload matches the call (not annotation-caused)
+      count: 66
+      in 29 files across 14 repos
+
+  [has-type] Cannot determine the type of an expression (not annotation-caused)
+      count: 49
+      in 17 files across 10 repos
+
+  [return] Function with a return annotation has no return statement (annotation-caused)
+      count: 34
+      in 31 files across 9 repos
+
+  [list-item] List element type mismatch (not annotation-caused)
+      count: 25
+      in 17 files across 6 repos
+
+  [truthy-function] Function is always truthy (not annotation-caused)
+      count: 20
+      in 12 files across 3 repos
+
+  [empty-body] Function body is empty but returns a non-None value (not annotation-caused)
+      count: 18
+      in 12 files across 3 repos
+
+  [type-var] Type variable is used incorrectly (not annotation-caused)
+      count: 17
+      in 15 files across 4 repos
+
+  [type-arg] Generic type has the wrong number/kind of parameters (annotation-caused)
+      count: 11
+      in 5 files across 3 repos
+
+  [method-assign] Assigning to a method that is not assignable (not annotation-caused)
+      count: 9
+      in 9 files across 6 repos
+
+  [typeddict-item] TypedDict entry type mismatch (not annotation-caused)
+      count: 9
+      in 6 files across 4 repos
+
+  [syntax] Syntax error in the file (not annotation-caused)
+      count: 6
+      in 5 files across 3 repos
+
+  [str-bytes-safe] Bytes used where str expected, or vice versa (not annotation-caused)
+      count: 5
+      in 2 files across 1 repos
+
+  [func-returns-value] Function that returns a value used where none expected (annotation-caused)
+      count: 5
+      in 4 files across 1 repos
+
+  [literal-required] Literal value not allowed here (not annotation-caused)
+      count: 3
+      in 3 files across 1 repos
+
+  [typeddict-unknown-key] No description (not annotation-caused)
+      count: 3
+      in 1 files across 1 repos
+
+  [str-format] String format call has wrong types (not annotation-caused)
+      count: 3
+      in 2 files across 1 repos
+
+  [type-abstract] Cannot instantiate abstract class (not annotation-caused)
+      count: 2
+      in 1 files across 1 repos
+
+PER-REPO SUMMARY
+  Split: training
+    pre-commit-hooks: 0 errors
+    flake8: 1 errors
+    vnpy: 217 errors
+    GHunt: 679 errors
+    spotify-downloader: 12 errors
+    deepface: 37 errors
+    urllib3: 12 errors
+    fastapi: 10 errors
+    poetry: 34 errors
+    haystack: 17 errors
+    rich: 0 errors
+    black: 21 errors
+    faceswap: 22 errors
+    streamlit: 58 errors
+    phidata: 811 errors
+    Pillow: 88 errors
+    sphinx: 473 errors
+    pip: 214 errors
+    gradio: 13 errors
+    pydantic: 387 errors
+
+  Split: validation
+    typer: 2 errors
+    pre-commit: 9 errors
+    flask: 3 errors
+    pdm: 47 errors
+    manim: 471 errors
+    nicegui: 15 errors
+    openai-python: 19 errors
+    taipy: 39 errors
+    OpenBB: 215 errors
+    capa: 3 errors
+
+  Split: test
+    private-gpt: 19 errors
+    gptme: 25 errors
+    paper-qa: 26 errors
+    pandas-ai: 0 errors
+    supervision: 155 errors
+    gpt4free: 0 errors
+    AutoGPT: 1 errors
+    mlc-llm: 0 errors
+    DB-GPT: 2373 errors
+    vllm: 0 errors
+    screenshot-to-code: 0 errors
+    composio: 0 errors
+    agents: 60 errors
+    unstract: 0 errors
+    TEN-Agent: 0 errors
+    gpt-pilot: 0 errors
+    lerobot: 410 errors
+    LLaMA-Factory: 570 errors
+    appworld: 1373 errors
+    exo: 140 errors
